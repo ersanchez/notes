@@ -117,4 +117,25 @@ Add a directory (`newDirectory`) to your path by editing your `.profile` file. A
 
 `PATH=/home/username:/usr/bin:`**`/home/username/newDirectory`**
 
+### Execution tracing
 
+Turn on execution tracing to make the shell print each command when executed. This can be done as part of executing the script or it can be done within the script.
+
+While executing:
+
+	$ bash -x programName
+	$ sh -x programName
+
+Inside the program just include this line near the top.
+
+	set -x
+
+If you only need to debug a certain section you can this tracing off byin inserting this line:
+
+	set +x
+
+other cool options:
+
+`set -e` will stop the program immediately if any external script exits non-zero (fail)
+`set -n` check script for syntax errors
+`strace` get a visual indication of what is happening
