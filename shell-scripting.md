@@ -4,7 +4,7 @@
 
 Ctrl-D = EOF
 
-magic line
+### magic line
 
 * specifies shell to use to run the program
 * don't include any white space after options on the magic line
@@ -30,7 +30,7 @@ The shell will run all of these in the background at the same time.
 
 Commands that the shell executes that are not built-in cause the shell to generate a new "child shell" in which to run the program and then, when done, go back the parent shell and run the next command listed there.
 
-Variables
+### Variables
 
 * name can start with underscore or letter
 
@@ -48,7 +48,7 @@ See the contents of the variable by using `echo` followed by the dollar sign `$`
 
 	> John
 
-**`printf`**
+### `printf`
 
 * does not add newline to end of line by default (needs a `\n` character)
 
@@ -66,3 +66,27 @@ Examples:
 	$ printf "%s is %d\n" $name $age
 
 	> John is 42
+
+### I/O Redirection
+
+source: standard input
+sink: standard output
+place to list problems: standard error
+
+default settings: terminal
+
+Can be changed: redirection
+
+Change standard input from terminal to a file with the (`<`) character.
+
+	$ sort < unsorted-names.txt 
+
+Change standard output from terminal to a file with the `>` character:
+
+	$ cat unsorted-names.txt > newlist.txt
+
+Combine them:
+
+	$ sort < unsorted-names.txt > sorted-names.txt
+
+
