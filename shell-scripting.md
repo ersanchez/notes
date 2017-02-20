@@ -85,8 +85,36 @@ Change standard output from terminal to a file with the `>` character:
 
 	$ cat unsorted-names.txt > newlist.txt
 
-Combine them:
+Take the input from a file `unsorted-names.txt` and output to another file `sorted-names.txt`.
 
 	$ sort < unsorted-names.txt > sorted-names.txt
+
+WARNING: if the file to which the output is being directed has stuff in it IT WILL BE DELETED!
+
+If you want to harmlessly add stuff to the end of a file use the append operator `>>`.
+
+	$ sort < unsorted-names.txt >> daily-attendance.txt
+
+Use a pipeline to make the output of a program be the input of the next program:
+
+	$ cat unsorted-names.txt | sort
+
+`/dev/null` is a black hole into which you can send data. It is useful if you want to get the exit status of a program but you do not want its output.
+
+`/dev/tty` is the terminal. You can redirect stuff to go to or come from the terminal.
+
+To hide the echoing of typed characters use `stty -echo` to set tty echo off. Restore normal echoing with `stty echo`.
+
+### Command searching
+
+If there is no magic line in a program, the shell will look for the program in the users path, `$PATH`.
+
+You can see which directories are in your path:
+
+	$ echo $PATH
+
+Add a directory (`newDirectory`) to your path by editing your `.profile` file. Append your directory to the end of the path you see listed:
+
+`PATH=/home/username:/usr/bin:`**`/home/username/newDirectory`**
 
 
