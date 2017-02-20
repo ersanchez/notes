@@ -33,22 +33,24 @@ Commands that the shell executes that are not built-in cause the shell to genera
 Variables
 
 * name can start with underscore or letter
-* assigned like this:
 
-	variableName=42
-	secondVariable="How are you today?"
+assigned like this:
 
-note the string is surrounded by quotes
+    $ name="John"
+    $ question="How old are you?"
+    $ age=42
+
+note the string is surrounded by quotes while the integer is not
 
 See the contents of the variable by using `echo` followed by the dollar sign `$` smushed up against the variable name.
 
-	$ echo $variableName
+	$ echo $name
 
-	> 42
+	> John
 
-`printf`
+**`printf`**
 
-* does not add newline to end of line by default (needs a \n character)
+* does not add newline to end of line by default (needs a `\n` character)
 
 format specifiers
 
@@ -61,8 +63,6 @@ Examples:
 
 	> The sky is blue
 
-	$ printf "%d, %s\n" $variableName $secondVariable
+	$ printf "%s is %d\n" $name $age
 
-	> 42, How are you today?
-
-
+	> John is 42
