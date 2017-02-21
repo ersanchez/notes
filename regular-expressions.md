@@ -1,0 +1,21 @@
+# Regular Expressions
+
+Purpose: find patterns in text strings
+
+* `\d` any digit 0 to 9 - character escape or character shorthand
+* `\D` any character not a digit
+* `.` "period" match any character - wildcard for a single character
+* `?` means the preceding character is optional
+* `+` one or more
+* `\*` zero or more
+* `^` beginning of line
+* `|` alternative
+* `$` matches end of line
+
+quantifier specifies exactly how many of a character you want
+
+	\d{3}-\d{2}-\d{4}
+
+will find a social security pattern: 3 digits hyphen 2 digits hyphen 4 digits
+
+	\d{3}-?\d{2}-?\d{4}
