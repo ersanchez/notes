@@ -10,3 +10,7 @@
 6. Copy the ssh address from the github repository: `git@github.com:ersanchez/newRepositoryNameGoesHere.git`
 7. Back in the local directory, add the ssh address: `$ git remote add origin git@github.com:ersanchez/newRepositoryNameGoesHere.git` and `$ git remote -v` to make sure you entered it correctly.
 8. Push it! `$ git push origin master` ...you might need to add the -f flag if it cries
+
+## Convert HTTPS sync to SSH
+
+	git remote set-url origin git@github.com:$GITUSERNAME/$GITREPONAME
