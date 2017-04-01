@@ -11,6 +11,13 @@ Double check the fingerprint and keyID on the key you just downloaded against th
 If everything matches, sign the key.
 
     $ gpg2 --default-key <yourKeyID> --sign-key <friendsKeyID>
+    
+Set the trust level on your signature on the key you just signed.
+
+    $ gpg2 --edit key <friendsKeyID>
+    gpg> trust
+    # set the trust level as appropriate
+    gpg> quit
 
 Next, upload the key (if your friend says it is ok) to the key server.
 
