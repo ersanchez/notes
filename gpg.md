@@ -10,8 +10,10 @@
 ### Generating a Revoke Key
 
 	$ gpg2 -a --output user@host.tld.asc.revoke --gen-revoke keyID
-		# select a reason
-		# quit
+
+select a reason for the revocation (if you have one)
+
+	gpg> quit
 
 ## Signing Someone's Key
 
