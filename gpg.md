@@ -16,6 +16,8 @@ _coming soon_
 select a reason for the revocation (if you have one)
 
 	gpg> quit
+	
+Keep this revocation key somewhere safe. You'll need it to revoke your gpg key if it is ever compromised.
 
 ## Signing Someone's Key
 
