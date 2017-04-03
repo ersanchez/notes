@@ -7,6 +7,8 @@
 
 ### Generating Keys
 
+_coming soon_
+
 ### Generating a Revoke Key
 
 	$ gpg2 -a --output user@host.tld.asc.revoke --gen-revoke keyID
