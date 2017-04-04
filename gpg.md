@@ -33,7 +33,7 @@ If everything matches, sign the key.
     
 Set the trust level on your signature on the key you just signed.
 
-    $ gpg2 --edit key <friendsKeyID>
+    $ gpg2 --edit-key <friendsKeyID>
     gpg> trust
     # set the trust level as appropriate
     gpg> quit
