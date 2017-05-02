@@ -1,10 +1,8 @@
 # Shell Scripting Notes
 
-## Classic Shell Scripting book
-
 Ctrl-D = EOF
 
-### magic line
+## magic line
 
 * specifies shell to use to run the program
 * don't include any white space after options on the magic line
@@ -20,7 +18,7 @@ Command line two dashes `--` means there are no more options to process
 
 Execute two programs listed on one line sequentially by separating them with a semicolon (`;`)
 
-Execute programs in parallel without waiting for completion by using an ampersand at the end of the line like this:
+Execute programs in parallel (and in the background) without waiting for completion by using an ampersand at the end of the line like this:
 
 	$ blah &
 	$ bleep &
@@ -30,7 +28,7 @@ The shell will run all of these in the background at the same time.
 
 Commands that the shell executes that are not built-in cause the shell to generate a new "child shell" in which to run the program and then, when done, go back the parent shell and run the next command listed there.
 
-### Variables
+## Variables
 
 * name can start with underscore or letter
 
@@ -48,9 +46,11 @@ See the contents of the variable by using `echo` followed by the dollar sign `$`
 
 	> John
 
-### `printf`
+Quotes are needed when you are concatenating variables.
 
-* does not add newline to end of line by default (needs a `\n` character)
+## `printf`
+
+* does not add newline to end of line by default (needs a `\n` character) - you need to add it
 
 format specifiers
 
@@ -67,7 +67,7 @@ Examples:
 
 	> John is 42
 
-### I/O Redirection
+## I/O Redirection
 
 source: standard input
 sink: standard output
