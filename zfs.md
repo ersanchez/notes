@@ -17,7 +17,7 @@ This section details commands used for:
 
 First off you need to determine which disks you will use and what type of redundancy you need.
 
-Use Bidule0hm's [calc][calculator] to determine how the level of redundancy (mirror, raidz1, raidz2, raidz3) will impact your pool capacity. I intentionally left off a stripe of disks. In a striped set, the loss of one disk will cause the entire pool to fail - too risky in my book.
+Use Bidule0hm's [calculator][calc] to determine how the level of redundancy (mirror, raidz1, raidz2, raidz3) will impact your pool capacity. I intentionally left off a stripe of disks. In a striped set, the loss of one disk will cause the entire pool to fail - too risky in my book.
 
 Determine the names of the disks in the system.
 
@@ -27,7 +27,7 @@ This will print a listing of the hardware currently in use. Determine which disk
 
 #### Create a Mirrored Pool
 
-Note, by default the new pool will be mounted at the root of the filesystem. You can change this if you want - check out the [manzpoolF][man] page.
+Note, by default the new pool will be mounted at the root of the filesystem. You can change this if you want - check out the [man][manzpoolF] page.
 
 You can create a zpool out of two disks (disk1 is `ada0`, `disk2` is ada1)jthat will be mirrors (exactly the same):
 
@@ -78,7 +78,7 @@ If there are no shapshots of the zfs filesystem that you wish to move, create on
 
 	$ sudo zfs snapshot -r zpoolName/specificZfsFilesystem@TIMESTAMP
 	
-Use something descriptive for the TIMESTAMP such as the [timestamp][ISO8601] time/date representation.
+Use something descriptive for the TIMESTAMP such as the [ISO8601][timestamp] time/date representation.
 
 
 
