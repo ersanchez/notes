@@ -86,7 +86,7 @@ In this scenario, I will send (copy) a zfs filesystem from the origin to a remot
 
 Prior to sending and receiving over ssh you have to consider which user (person or automated process) will be doing the send and receive and what permissions that user has on the origin computer and on the remote computer.
 
-I searched all over the interwebs trying to figure this out before I remembered that I bought [zfsmast][FreeBSD Mastery: Advanced ZFS] by Allan Jude and Michael W. Lucas. Problem: solved. 
+I searched all over the interwebs trying to figure this out before I remembered that I bought [FreeBSD Mastery: Advanced ZFS][zfsmast] by Allan Jude and Michael W. Lucas. Problem: solved. 
 
 Jude & Lucas describe the process in Chapter 4. Here is the overview:
 
