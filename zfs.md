@@ -94,7 +94,6 @@ Jude & Lucas describe the process in Chapter 4. Here is the overview:
 * give the new user the rights necessary for doing the sending zfs datasets on the local computer
 * give the new user the rights necessary for receiving data sets on the remote computer
 
-
 	# zfs send originalPool/oringinalFS@TIMESTAMP | ssh user@remotehost zfs receive remotePool
 
 [calc]: https://jsfiddle.net/Biduleohm/paq5u7z5/1/embedded/result/
