@@ -51,6 +51,38 @@ In zfs filesystems are cheap - make tons of them. This makes it easier manipulat
 
 ## Routine Events
 
+### Snapshots
+
+#### Create a Snapshot
+
+Creating a snapshot takes almost no time at all. In order to easily tell snapshots apart, consider using a standard timestamp like [ISO8601][timestamp].
+
+Create a snapshot of a directory and all descendent file systems:
+
+	$ sudo zfs snapshot -r zpoolName/datasetName@TIMESTAMP
+
+Create a snapshot of a specific directory:
+
+	$ sudo zfs snapshot zpoolName/datasetName@TIMESTAMP
+
+#### Destroy a Snapshot
+
+Consider first creating a snapshot as of NOW.
+
+Delete a specific snapshot:
+
+	$ sudo zfs destroy zpoolName/datasetName@TIMESTAMP
+
+#### List Snapshots
+
+See all snapshots:
+
+	$ zfs list -t snapshot
+
+See snapshots in a specific directory:
+
+	$ zfs list -r -t snapshot zpoolName/datasetName
+
 ## Major Changes
 
 This section details recipes to use for the following events:
@@ -96,7 +128,7 @@ Jude & Lucas describe the process in Chapter 4. Here is the overview:
 
 blah
 
-	# zfs send originalPool/oringinalFS@TIMESTAMP | ssh user@remotehost zfs receive remotePool
+	# zfs send originalPool/originalFS@TIMESTAMP | ssh user@remotehost zfs receive remotePool
 	
 blah
 
