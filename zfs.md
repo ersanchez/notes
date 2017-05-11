@@ -94,7 +94,19 @@ This section details recipes to use for the following events:
 
 You can move a zfs filesystem from one zpool to another zpool (same or remote computer). Using zfs send and receive buys you error checking on the receiving end. This is more desireable than `dd` or `rsync`.
 
+Before you can do a send and receive, you must have both a user on the sending computer with privileges to send and a user on the receiving computer with privileges to receive.
+
+On the sending computer:
+
+	$ sudo zfs allow -u USERNAME send,snapshot zpoolName/datasetName
+
+On the receiving computer:
+
+	$ sudo zfs allow -u USERNAME create,mount,receive zpoolName/datasetName
+
 #### Move a ZFS Filesystem
+
+This section is for making the first move of a zfs dataset from an original zpool to a new zpool. Making incremental updates is included in the next section.
 
 First determine the name of the most recent snapshot. This snapshot will include the **entire** contents of the zfs filesystem as it was on the date/time of the snapshot. The snapshot might be 100kB and the entire zfs filesystem may be 100 TB. Run `zfs list` to see the size of the zfs filesystem.
 
@@ -112,8 +124,6 @@ If there are no shapshots of the zfs filesystem that you wish to move, create on
 	
 Use something descriptive for the TIMESTAMP such as the [ISO8601][timestamp] time/date representation.
 
-
-
 In this scenario, I will send (copy) a zfs filesystem from the origin to a remote computer over `ssh`. The zfs filesystem to be sent (copied) is named `oringinalFS` living on the `oringinalPool`. It is being sent (copied) to `remotePool` on the remote computer.
 
 Prior to sending and receiving over ssh you have to consider which user (person or automated process) will be doing the send and receive and what permissions that user has on the origin computer and on the remote computer.
@@ -126,7 +136,7 @@ Jude & Lucas describe the process in Chapter 4. Here is the overview:
 * give the new user the rights necessary for doing the sending zfs datasets on the local computer
 * give the new user the rights necessary for receiving data sets on the remote computer
 
-blah
+Note: the zfs dataset that is being moved cannot already exist on the target zpool. If a snapshot of the zfs dataset already exists on the target zpool, you _really_ want to do an incremental update, so, skip to the next section.
 
 	# zfs send originalPool/originalFS@TIMESTAMP | ssh user@remotehost zfs receive remotePool
 	
