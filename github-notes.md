@@ -14,3 +14,9 @@
 ## Convert HTTPS sync to SSH
 
 	git remote set-url origin git@github.com:$GITUSERNAME/$GITREPONAME
+
+## Operations on Files
+
+Remove a file from the repo but keep it in the directory:
+
+	$ git rm --cached fileName
