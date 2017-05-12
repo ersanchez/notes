@@ -72,3 +72,5 @@ Each comment should have:
 * location in module
 * description of problem
 * proposed solution
+
+## References
