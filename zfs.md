@@ -94,6 +94,16 @@ This section details recipes to use for the following events:
 
 You can move a zfs filesystem from one zpool to another zpool (same or remote computer). Using zfs send and receive buys you error checking on the receiving end. This is more desireable than `dd` or `rsync`.
 
+Prior to sending and receiving over ssh you have to consider which user (person or automated process) will be doing the send and receive and what permissions that user has on the origin computer and on the remote computer.
+
+I searched all over the interwebs trying to figure this out before I remembered that I bought [FreeBSD Mastery: Advanced ZFS][zfsmast] by Allan Jude and Michael W. Lucas. Problem: solved. 
+
+Jude & Lucas ([buy their book][zfsmast]) describe the process in Chapter 4. Here is the overview:
+
+* create an unpriviliged user (in my case, _dataslinger_) with SSH keys on both the sending and receiving computers
+* give the new user the rights necessary for doing the sending zfs datasets on the local computer
+* give the new user the rights necessary for receiving data sets on the remote computer
+
 Before you can do a send and receive, you must have both a user on the sending computer with privileges to send and a user on the receiving computer with privileges to receive.
 
 On the sending computer:
@@ -126,21 +136,9 @@ Use something descriptive for the TIMESTAMP such as the [ISO8601][timestamp] tim
 
 In this scenario, I will send (copy) a zfs filesystem from the origin to a remote computer over `ssh`. The zfs filesystem to be sent (copied) is named `oringinalFS` living on the `oringinalPool`. It is being sent (copied) to `remotePool` on the remote computer.
 
-Prior to sending and receiving over ssh you have to consider which user (person or automated process) will be doing the send and receive and what permissions that user has on the origin computer and on the remote computer.
-
-I searched all over the interwebs trying to figure this out before I remembered that I bought [FreeBSD Mastery: Advanced ZFS][zfsmast] by Allan Jude and Michael W. Lucas. Problem: solved. 
-
-Jude & Lucas describe the process in Chapter 4. Here is the overview:
-
-* create an unpriviliged user (in my case, _dataslinger_) with SSH keys on both the sending and receiving computers
-* give the new user the rights necessary for doing the sending zfs datasets on the local computer
-* give the new user the rights necessary for receiving data sets on the remote computer
-
 Note: the zfs dataset that is being moved cannot already exist on the target zpool. If a snapshot of the zfs dataset already exists on the target zpool, you _really_ want to do an incremental update, so, skip to the next section.
 
 	# zfs send originalPool/originalFS@TIMESTAMP | ssh user@remotehost zfs receive remotePool
-	
-blah
 
 [calc]: https://jsfiddle.net/Biduleohm/paq5u7z5/1/embedded/result/
 [manzpoolF]: https://mdoc.su/f/zpool
