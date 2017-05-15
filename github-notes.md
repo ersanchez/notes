@@ -17,6 +17,6 @@
 
 ## Operations on Files
 
-Remove a file from the repo but keep it in the directory:
+Remove a tracked file from the repo but keep it in the directory in an un-tracked status:
 
 	$ git rm --cached fileName
