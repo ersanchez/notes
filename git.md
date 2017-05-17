@@ -1,22 +1,26 @@
-# GitHub Notes
+# Git Notes
 
-## Add an existing local directory `blah` to a github repository
+This file contains my notes on `git`.
 
-1. Make an **empty** repository on github
-2. Navigate to the directory on the local machine
-3. Initialize it: `$ git init`
-4. Do a `git add` on everything: `$ git add .`
-5. Commit everything: `$ git commit -m "initial commit"`
-6. Copy the ssh address from the github repository: `git@github.com:ersanchez/newRepositoryNameGoesHere.git`
-7. Back in the local directory, add the ssh address: `$ git remote add origin git@github.com:ersanchez/newRepositoryNameGoesHere.git` and `$ git remote -v` to make sure you entered it correctly.
-8. Push it! `$ git push origin master` ...you might need to add the -f flag if it cries
+## Start a New Project
 
-## Convert HTTPS sync to SSH
+There are two main ways to start a new project:
 
-	git remote set-url origin git@github.com:$GITUSERNAME/$GITREPONAME
+1. Initialize an existing (or newly-made) directory
+2. Clone an existing directory (local or remote)
 
-## Operations on Files
+#### Initialize an Existing Directory
 
-Remove a tracked file from the repo but keep it in the directory in an un-tracked status:
+Navigate into the directory you would like git to start tracking.
 
-	$ git rm --cached fileName
+	$ git init 
+
+#### Clone an Existing Directory
+
+Navigate to the directory in which you wish to clone the remote repository.
+
+Get the link to the repository you want to make a local clone of. 
+
+	$ git clone https://linktoremoterepo.com/repositoryname.git
+
+This will clone everything from the remote repository in the current directory.
