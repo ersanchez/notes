@@ -1,5 +1,7 @@
 # GitHub Notes
 
+This file deals with GitHub-specific git operations.
+
 ## Add an existing local directory `blah` to a github repository
 
 1. Make an **empty** repository on github
