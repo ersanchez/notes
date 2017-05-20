@@ -1,14 +1,14 @@
 # Contents 
 
 [Installation Options](#installation-options)
-* [Removing Existing AutoKey](#removing-existing-autokey)
+
 * [Package Manager Installation](#package-manager-installation)
 
-  -[Debian and Derivatives](#debian-and-derivatives)    
-  -[Arch](#arch)    
-  -[Gentoo](#gentoo)
+  * [Debian and Derivatives](#debian-and-derivatives)
+  * [Arch](#arch)
+  * [Gentoo](#gentoo)
   
-* [pip Installation](#pip-installation)
+* [`pip` Installation](#pip-installation)
 
 [Running AutoKey](#running-autokey)
 
