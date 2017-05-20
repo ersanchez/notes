@@ -18,7 +18,7 @@ This is a _draft_ of the installation instructions for AutoKey.
 
 ## Installation Options
 
-There are two versions of AutoKey
+There are two versions of the Python3 based AutoKey
 
 * `autokey-gtk` - for systems using a GTK-based desktop environment such as GNOME, MATE, Ubuntu Unity, etc.
 * `autokey-qt` - for systems using a Qt-based desktop environment such as KDE Plasma, Lumina, etc.
