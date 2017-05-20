@@ -66,7 +66,7 @@ If `git` is not already installed, [install git][installgit].
 
 If the Python3 version of `pip` is not already installed, install `pip` using these [instructions][installpip].
 
-The following dependencies _should_ be automatically installed by the `pip` install script listed below. If the install fails, look at your error messages - you might need to manually install one or more of the dependencies.
+The following Python3 dependencies _should_ be automatically installed by the `pip` install script listed below. If the install fails, look at your error messages - you might need to manually install one or more of the dependencies.
 
 **Dependencies:**
 
