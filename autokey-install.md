@@ -17,19 +17,19 @@ This is a _draft_ of the installation instructions for AutoKey.
 AutoKey can be installed by
 
 * using a package manager
-* using a Git repository
-* building from source
+* using a pip
 
 ### Removing Existing AutoKey
 
 1. Quit Autokey - verify the AutoKey icon is not present in your system tray
 1. Backup your `~/.config/autokey` directory if you wish to save your current scripts and phrases
+1. Uninstall the existing AutoKey
 
 ## Package Manager
 
 ### Debian and Derivatives
 
-This applies to Debian and Debian-derived distributions such as Ubuntu and Mint. These steps assume that you have Python version 3.5 or higher.
+This section applies to Debian and derivatives such as Ubuntu and Mint. These steps assume that you have Python version 3.5 or higher.
 
 If you don't know what a PPA is you can learn about them [here][ppa].
 
@@ -41,9 +41,23 @@ If you don't know what a PPA is you can learn about them [here][ppa].
 
 ### Gentoo
 
-## Git Repository
+## pip Install
 
-## Build from Source
+Dependencies:
+
+* Python: 3.5
+* Python modules (common):
+> * dbus-python 
+> * pyinotify
+> * python-xlib
+* GTK frontend only:
+* GObject Introspection
+> * PyGTK
+> * GtkSourceView
+> * libappindicator
+* QT frontend only:
+> * PyQt4
+> * PyKDE4
 
 
 
