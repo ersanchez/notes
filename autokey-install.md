@@ -76,6 +76,7 @@ The following Python3 dependencies _should_ be automatically installed by the `p
 * PyGTK
 * GtkSourceView
 * libappindicator
+* libdbus-glib-1-dev
 
 `autokey-qt` version
 
