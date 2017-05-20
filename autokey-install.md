@@ -17,7 +17,7 @@ This is a _draft_ of the installation instructions for AutoKey.
 AutoKey can be installed by
 
 * using a package manager
-* using a pip
+* using [`pip`][pip]
 
 ### Removing Existing AutoKey
 
@@ -41,7 +41,7 @@ If you don't know what a PPA is you can learn about them [here][ppa].
 
 ### Gentoo
 
-## pip Install
+## `pip` Install
 
 Dependencies:
 
@@ -63,3 +63,4 @@ Dependencies:
 
 
 [ppa]: https://askubuntu.com/a/4990
+[pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
