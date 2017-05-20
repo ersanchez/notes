@@ -4,15 +4,15 @@ This is a _draft_ of the installation instructions for AutoKey.
 
 # Contents 
 
-[Installation Options](#installation-options)    
-- [Removing Existing AutoKey](#removing-existing-autokey)
-- [Package Manager](#package-manager) 
+[Installation Options](#installation-options)
+* [Removing Existing AutoKey](#removing-existing-autokey)
+* [Package Manager](#package-manager)
 
-    -[Debian and Derivatives](#debian-and-derivatives)
-    -[Arch](#arch)
-    -[Gentoo](#gentoo)
-    
-- [pip Install](#pip-install)
+  -[Debian and Derivatives](#debian-and-derivatives)    
+  -[Arch](#arch)    
+  -[Gentoo](#gentoo)
+  
+* [pip Install](#pip-install)
 
 [Running AutoKey](#running-autokey)
 
@@ -62,7 +62,7 @@ Install AutoKey using the [layman][layman] package manager.
 
 ## `pip` Install
 
-If you are using a distribution other than those listed above or if you want to install AutoKey from GitHub you can use this `[pip][pip]` installation method.
+If you are using a distribution other than those listed above or if you want to install AutoKey from GitHub you can use this [`pip`][pip] installation method.
 
 If `git` is not already installed, [install git][installgit].
 
