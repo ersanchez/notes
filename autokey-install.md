@@ -96,15 +96,17 @@ AutoKey will be located in your user directory: `~/.local/bin/autokey`
   
 ## Running AutoKey
 
-In order to run AutoKey, you must add the installation directory to your PATH shell environment variable.
+In order to run AutoKey, the installation directory must be added to your PATH shell environment variable. If you installed AutoKey with a package manager this was probably done for you automatically. Note: the installation directory will vary based on which distribution you are using. On Ubuntu 16.04 it is `/usr/bin/autokey`.
 
-You can set this temporarily (will revert at next login):
+You can run AutoKey by using the your distribution's application launcher. For example, on Ubuntu, just click on the super-key and type `autokey`.
+
+If you installed AutoKey using `pip` or if the installation directory was not added to your `PATH`, you can set this temporarily (will revert at next login):
 
     $ PATH="$HOME/.local/bin:$PATH"
 
 Or you can add it permanently by following these [directions][path].
 
-Either way, once `$HOME/.local/bin` is in your `PATH` you can run AutoKey by executing the applicable command (depending on which version you installed):
+Either way, once `$HOME/.local/bin` (or whichever installation directory was used) is in your `PATH` you can run AutoKey by executing the applicable command (depending on which version you installed):
 
     $ autokey-gtk
     $ autokey-qt
