@@ -114,7 +114,7 @@ Either way, once `$HOME/.local/bin` as used by the pip3 installation method (or 
 [aur]: https://aur.archlinux.org/packages/autokey-py3
 [autorepo]: https://github.com/autokey-py3/autokey
 [installgit]: https://git-scm.com/download/linux
-[installpip]: https://pip.pypa.io/en/stable/installing/
+[installpip]: https://packaging.python.org/install_requirements_linux/#installing-pip-setuptools-wheel-with-linux-package-managers
 [layman]: https://github.com/y2kbadbug/gentoo-overlay/tree/master/app-misc/autokey-py3
 [path]: http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux
 [pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
