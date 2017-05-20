@@ -96,9 +96,9 @@ AutoKey will be located in your user directory: `~/.local/bin/autokey`
   
 ## Running AutoKey
 
-In order to run AutoKey, the installation directory must be added to your PATH shell environment variable. If you installed AutoKey with a package manager this was probably done for you automatically. Note: the installation directory will vary based on which distribution you are using. On Ubuntu 16.04 it is `/usr/bin/autokey`.
+In order to run AutoKey, the installation directory must be added to your PATH shell environment variable. If you installed AutoKey with a package manager this was probably done for you automatically. Note: the installation directory will vary based on which distribution you are using. For example, on Ubuntu 16.04 it is `/usr/bin/autokey`.
 
-You can run AutoKey by using the your distribution's application launcher. For example, on Ubuntu, just click on the super-key and type `autokey`.
+You can run AutoKey by using your distribution's application launcher. For example, on Ubuntu, just click on the super-key and type `autokey`. The main application window should open and you should see the AutoKey "A" icon in your taskbar. You can right-click on the "A" icon to see some menu choices and to quit AutoKey.
 
 If you installed AutoKey using `pip` or if the installation directory was not added to your `PATH`, you can set this temporarily (will revert at next login):
 
@@ -106,7 +106,7 @@ If you installed AutoKey using `pip` or if the installation directory was not ad
 
 Or you can add it permanently by following these [directions][path].
 
-Either way, once `$HOME/.local/bin` (or whichever installation directory was used) is in your `PATH` you can run AutoKey by executing the applicable command (depending on which version you installed):
+Either way, once `$HOME/.local/bin` as used by the pip3 installation method (or whichever installation directory was used) is in your `PATH` you can run AutoKey by executing the applicable command for the version you installed:
 
     $ autokey-gtk
     $ autokey-qt
