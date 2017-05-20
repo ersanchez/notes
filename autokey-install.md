@@ -22,7 +22,7 @@ AutoKey can be installed by
 ### Removing Existing AutoKey
 
 1. Quit Autokey - verify the AutoKey icon is not present in your system tray
-1. Backup your `~/.config/autokey` directory if you wish to save your current scripts and phrases
+1. Backup your `~/.config/autokey` directory if you wish to save existing scripts and phrases
 1. Uninstall the existing AutoKey
 
 ## Package Manager
@@ -42,6 +42,12 @@ If you don't know what a PPA is you can learn about them [here][ppa].
 The GTK front end is available in the Arch User Repository ([AUR][aur]). The qt front end is not available in the AUR.
 
 ### Gentoo
+
+Install AutoKey using the [layman][layman] package manager.
+
+  layman -a y2kbadbug
+  emerge --sync
+  emerge -av autokey-py3
 
 ## `pip` Install
 
@@ -64,5 +70,6 @@ Dependencies:
 
 
 [aur]: https://aur.archlinux.org/packages/autokey-py3
+[layman]: https://github.com/y2kbadbug/gentoo-overlay/tree/master/app-misc/autokey-py3
 [pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
 [ppa]: https://askubuntu.com/a/4990
