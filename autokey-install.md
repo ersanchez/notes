@@ -5,17 +5,18 @@ This is a _draft_ of the installation instructions for AutoKey.
 # Contents 
 
 [Installation Options](#installation-options)    
-- [Removing Existing AutoKey](#removing-autokey)
-- [Package Manager](#package-manager)
+- [Removing Existing AutoKey](#removing-existing-autokey)
+- [Package Manager](#package-manager) 
+
     -[Debian and Derivatives](#debian-and-derivatives)
     -[Arch](#arch)
     -[Gentoo](#gentoo)
+    
 - [pip Install](#pip-install)
+
 [Running AutoKey](#running-autokey)
 
 ## Installation Options
-
-**NOTE:** Remove existing AutoKey installation before attempting these steps.
 
 There are two versions of AutoKey
 
@@ -26,6 +27,8 @@ AutoKey can be installed using
 
 * package manager
 * [`pip`][pip]
+
+**NOTE:** Remove existing AutoKey installation before attempting these steps.
 
 ### Removing Existing AutoKey
 
@@ -41,9 +44,9 @@ This section applies to Debian and derivatives such as Ubuntu and Mint. These st
 
 If you don't know what a PPA is you can learn about them [here][ppa].
 
-  $ sudo add-apt-repository ppa:troxor/autokey
-  $ sudo apt update
-  $ sudo apt install autokey-gtk
+    $ sudo add-apt-repository ppa:troxor/autokey
+    $ sudo apt update
+    $ sudo apt install autokey-gtk
   
 ### Arch
 
@@ -53,9 +56,9 @@ The GTK front end is available in the Arch User Repository ([AUR][aur]). The qt 
 
 Install AutoKey using the [layman][layman] package manager.
 
-  layman -a y2kbadbug
-  emerge --sync
-  emerge -av autokey-py3
+    layman -a y2kbadbug
+    emerge --sync
+    emerge -av autokey-py3
 
 ## `pip` Install
 
@@ -63,7 +66,7 @@ If you are using a distribution other than those listed above or if you want to 
 
 If `git` is not already installed, [install git][installgit].
 
-If the Python3 version of `pip` is not already installed, install `pip` ([instructions][installpip]).
+If the Python3 version of `pip` is not already installed, install `pip` using these [instructions][installpip].
 
 The following dependencies _should_ be automatically installed by the `pip` install script listed below. If the install fails, look at your error messages - you might need to manually install one or more of the dependencies.
 
@@ -85,7 +88,7 @@ Dependencies:
 
 Install AutoKey from the [AutoKey GitHub repository][autorepo]:
 
-  $ pip3 install --user git+https://github.com/autokey-py3/autokey
+    $ pip3 install --user git+https://github.com/autokey-py3/autokey
   
 ## Running AutoKey
 
