@@ -51,6 +51,14 @@ Install AutoKey using the [layman][layman] package manager.
 
 ## `pip` Install
 
+If you are using a distribution other than those listed above or if you want to install AutoKey from GitHub you can use this `[pip][pip]` installation method.
+
+If `git` is not already installed, [install git][installgit].
+
+If the Python3 version of `pip` is not already installed, [install `pip`][installpip].
+
+The following dependencies _should_ be automatically installed by the `pip` install script listed below. If the install fails, look at your error messages - you might need to manually install one or more of the dependencies.
+
 Dependencies:
 
 * Python: 3.5
@@ -67,9 +75,14 @@ Dependencies:
   - PyQt4
   - PyKDE4
 
+Install AutoKey from the [AutoKey GitHub repository][autorepo]:
 
+  $ pip3 install --user git+https://github.com/autokey-py3/autokey
 
 [aur]: https://aur.archlinux.org/packages/autokey-py3
+[autorepo]: https://github.com/autokey-py3/autokey
+[installgit]: https://git-scm.com/download/linux
+[installpip]: https://pip.pypa.io/en/stable/installing/
 [layman]: https://github.com/y2kbadbug/gentoo-overlay/tree/master/app-misc/autokey-py3
 [pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
 [ppa]: https://askubuntu.com/a/4990
