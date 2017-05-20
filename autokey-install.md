@@ -106,7 +106,7 @@ If you installed AutoKey using `pip` or if the installation directory was not ad
 
 Or you can add it permanently by following these [directions][path].
 
-Either way, once `$HOME/.local/bin` as used by the pip3 installation method (or whichever installation directory was used) is in your `PATH` you can run AutoKey by executing the applicable command for the version you installed:
+Either way, once `$HOME/.local/bin` as used by the pip3 installation method (or whichever installation directory was used) is in your `PATH` you can run AutoKey by executing the applicable command for the version you wish to run:
 
     $ autokey-gtk
     $ autokey-qt
