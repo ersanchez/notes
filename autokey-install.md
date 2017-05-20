@@ -62,6 +62,8 @@ Install AutoKey using the [layman][layman] package manager.
 
 ## `pip` Install
 
+This assumes you have Python version 3.5 or higher installed.
+
 If you are using a distribution other than those listed above or if you want to install AutoKey from GitHub you can use this [`pip`][pip] installation method.
 
 If `git` is not already installed, [install git][installgit].
@@ -72,19 +74,18 @@ The following dependencies _should_ be automatically installed by the `pip` inst
 
 Dependencies:
 
-* Python: 3.5
-* Python modules (common):
-  - dbus-python 
-  - pyinotify
-  - python-xlib
-* GTK frontend only:
+* `autokey-gtk`
   - GObject Introspection
   - PyGTK
   - GtkSourceView
   - libappindicator
-* QT frontend only:
+* `autokey-qt`
   - PyQt4
   - PyKDE4
+* Both versions
+  - dbus-python 
+  - pyinotify
+  - python-xlib
 
 Install AutoKey from the [AutoKey GitHub repository][autorepo]:
 
