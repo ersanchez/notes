@@ -47,17 +47,17 @@ Dependencies:
 
 * Python: 3.5
 * Python modules (common):
-> * dbus-python 
-> * pyinotify
-> * python-xlib
+- dbus-python 
+- pyinotify
+- python-xlib
 * GTK frontend only:
 * GObject Introspection
-> * PyGTK
-> * GtkSourceView
-> * libappindicator
+- PyGTK
+- GtkSourceView
+- libappindicator
 * QT frontend only:
-> * PyQt4
-> * PyKDE4
+- PyQt4
+- PyKDE4
 
 
 
