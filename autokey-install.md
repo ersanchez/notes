@@ -18,7 +18,7 @@ This is a _draft_ of the installation instructions for AutoKey.
 
 ## Installation Options
 
-There are two versions of the Python3 based AutoKey
+There are two versions of the Python3-based AutoKey
 
 * `autokey-gtk` - for systems using a GTK-based desktop environment such as GNOME, MATE, Ubuntu Unity, etc.
 * `autokey-qt` - for systems using a Qt-based desktop environment such as KDE Plasma, Lumina, etc.
@@ -62,9 +62,9 @@ Install AutoKey using the [layman][layman] package manager.
 
 ## `pip` Install
 
-This assumes you have Python version 3.5 or higher installed.
-
 If you are using a distribution other than those listed above or if you want to install AutoKey from GitHub you can use this [`pip`][pip] installation method.
+
+This assumes you have Python version 3.5 or higher installed.
 
 If `git` is not already installed, [install git][installgit].
 
@@ -72,20 +72,25 @@ If the Python3 version of `pip` is not already installed, install `pip` using th
 
 The following dependencies _should_ be automatically installed by the `pip` install script listed below. If the install fails, look at your error messages - you might need to manually install one or more of the dependencies.
 
-Dependencies:
+**Dependencies:**
 
-* `autokey-gtk`
-  - GObject Introspection
-  - PyGTK
-  - GtkSourceView
-  - libappindicator
-* `autokey-qt`
-  - PyQt4
-  - PyKDE4
-* Both versions
-  - dbus-python 
-  - pyinotify
-  - python-xlib
+`autokey-gtk` version
+
+* GObject Introspection
+* PyGTK
+* GtkSourceView
+* libappindicator
+
+`autokey-qt` version
+
+* PyQt4
+* PyKDE4
+
+_Both_ versions need
+
+* dbus-python 
+* pyinotify
+* python-xlib
 
 Install AutoKey from the [AutoKey GitHub repository][autorepo]:
 
