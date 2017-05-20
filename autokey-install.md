@@ -2,13 +2,13 @@
 
 [Installation Options](#installation-options)
 * [Removing Existing AutoKey](#removing-existing-autokey)
-* [Package Manager](#package-manager)
+* [Package Manager Installation](#package-manager-installation)
 
   -[Debian and Derivatives](#debian-and-derivatives)    
   -[Arch](#arch)    
   -[Gentoo](#gentoo)
   
-* [pip Install](#pip-install)
+* [pip Installation](#pip-installation)
 
 [Running AutoKey](#running-autokey)
 
@@ -32,7 +32,7 @@ AutoKey can be most easily installed using one of these two methods:
 1. Backup your `~/.config/autokey` directory if you wish to save existing scripts and phrases
 1. Uninstall the existing AutoKey
 
-## Package Manager
+## Package Manager Installation
 
 ### Debian and Derivatives
 
@@ -56,7 +56,7 @@ Install AutoKey using the [layman][layman] package manager.
     emerge --sync
     emerge -av autokey-py3
 
-## `pip` Install
+## `pip` Installation
 
 If you are using a distribution other than those listed above or if you want to install AutoKey from GitHub you can use this [`pip`][pip] installation method.
 
