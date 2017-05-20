@@ -1,7 +1,3 @@
-This is a _draft_ of the installation instructions for AutoKey.
-
-**DO NOT USE IT - It is a work in progress**
-
 # Contents 
 
 [Installation Options](#installation-options)
@@ -23,7 +19,7 @@ There are two versions of the Python3-based AutoKey
 * `autokey-gtk` - for systems using a GTK-based desktop environment such as GNOME, MATE, Ubuntu Unity, etc.
 * `autokey-qt` - for systems using a Qt-based desktop environment such as KDE Plasma, Lumina, etc.
 
-AutoKey can be installed using
+AutoKey can be most easily installed using one of these two methods:
 
 * package manager
 * [`pip`][pip]
@@ -95,13 +91,29 @@ _Both_ versions need
 Install AutoKey from the [AutoKey GitHub repository][autorepo] for your user only:
 
     $ pip3 install --user git+https://github.com/autokey-py3/autokey
+    
+AutoKey will be located in your user directory: `~/.local/bin/autokey`
   
 ## Running AutoKey
+
+In order to run AutoKey, you must add the installation directory to your PATH shell environment variable.
+
+You can set this temporarily (will revert at next login):
+
+    $ PATH="$HOME/.local/bin:$PATH"
+
+Or you can add it permanently by following these [directions][path].
+
+Either way, once `$HOME/.local/bin` is in your `PATH` you can run AutoKey by executing the applicable command (depending on which version you installed):
+
+    $ autokey-gtk
+    $ autokey-qt
 
 [aur]: https://aur.archlinux.org/packages/autokey-py3
 [autorepo]: https://github.com/autokey-py3/autokey
 [installgit]: https://git-scm.com/download/linux
 [installpip]: https://pip.pypa.io/en/stable/installing/
 [layman]: https://github.com/y2kbadbug/gentoo-overlay/tree/master/app-misc/autokey-py3
+[path]: http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux
 [pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
 [ppa]: https://askubuntu.com/a/4990
