@@ -7,17 +7,25 @@ This is a _draft_ of the installation instructions for AutoKey.
 [Installation Options](#installation-options)    
 - [Removing Existing AutoKey](#removing-autokey)
 - [Package Manager](#package-manager)
-- [Git Repository](#git-repository)
-- [Build from Source](#build-from-source)
+    -[Debian and Derivatives](#debian-and-derivatives)
+    -[Arch](#arch)
+    -[Gentoo](#gentoo)
+- [pip Install](#pip-install)
+[Running AutoKey](#running-autokey)
 
 ## Installation Options
 
 **NOTE:** Remove existing AutoKey installation before attempting these steps.
 
-AutoKey can be installed by
+There are two versions of AutoKey
 
-* using a package manager
-* using [`pip`][pip]
+* `autokey-gtk` - for systems using a GTK-based desktop environment such as GNOME, MATE, Ubuntu Unity, etc.
+* `autokey-qt` - for systems using a Qt-based desktop environment such as KDE Plasma, Lumina, etc.
+
+AutoKey can be installed using
+
+* package manager
+* [`pip`][pip]
 
 ### Removing Existing AutoKey
 
@@ -55,7 +63,7 @@ If you are using a distribution other than those listed above or if you want to 
 
 If `git` is not already installed, [install git][installgit].
 
-If the Python3 version of `pip` is not already installed, [install `pip`][installpip].
+If the Python3 version of `pip` is not already installed, install `pip` ([instructions][installpip]).
 
 The following dependencies _should_ be automatically installed by the `pip` install script listed below. If the install fails, look at your error messages - you might need to manually install one or more of the dependencies.
 
@@ -67,7 +75,7 @@ Dependencies:
   - pyinotify
   - python-xlib
 * GTK frontend only:
-* GObject Introspection
+  - GObject Introspection
   - PyGTK
   - GtkSourceView
   - libappindicator
@@ -78,6 +86,8 @@ Dependencies:
 Install AutoKey from the [AutoKey GitHub repository][autorepo]:
 
   $ pip3 install --user git+https://github.com/autokey-py3/autokey
+  
+## Running AutoKey
 
 [aur]: https://aur.archlinux.org/packages/autokey-py3
 [autorepo]: https://github.com/autokey-py3/autokey
