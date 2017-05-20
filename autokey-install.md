@@ -39,6 +39,8 @@ If you don't know what a PPA is you can learn about them [here][ppa].
   
 ### Arch
 
+The GTK front end is available in the Arch User Repository ([AUR][aur]). The qt front end is not available in the AUR.
+
 ### Gentoo
 
 ## `pip` Install
@@ -61,6 +63,6 @@ Dependencies:
 
 
 
-
-[ppa]: https://askubuntu.com/a/4990
+[aur]: https://aur.archlinux.org/packages/autokey-py3
 [pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
+[ppa]: https://askubuntu.com/a/4990
