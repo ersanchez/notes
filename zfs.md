@@ -43,6 +43,8 @@ RAIDZ pools are cool because they can withstand the loss of X number of disks wi
 * `raid2` can withstand the loss of two disks
 * `raid3` can withstand the loss of three disks
 
+	$ sudo zpool create newPoolName raidType ada0 ada1 ada2 ada3
+
 ### Create a ZFS Filesystem
 
 In zfs filesystems are cheap - make tons of them. This makes it easier manipulate them later.
