@@ -41,9 +41,11 @@ RAIDZ pools are cool because they can withstand the loss of X number of disks wi
 
 * `raidz` (same as `raidz1`) can withstand the loss of one disk
 * `raid2` can withstand the loss of two disks
-* `raid3` can withstand the loss of three disks
+* `raid3` can withstand the loss of three disks    
 
-	$ sudo zpool create newPoolName raidType ada0 ada1 ada2 ada3
+    $ sudo zpool create
+
+	$ sudo zpool create newPoolName raidZtype ada0 ada1 ada2 ada3
 
 ### Create a ZFS Filesystem
 
