@@ -91,8 +91,15 @@ See snapshots in a specific directory:
 
 This section details recipes to use for the following events:
 
+* restoring from a specific snapshot
 * zfs send and receive - for example, moving a zfs filesystem from one zpool to another zpool
 * incremental zfs send and receive - for example backing up a zfs filesystem to a remote location or USB disk
+
+### Restore From Snapshot
+
+	# zfs rollback -r tank/home/ahrens@tuesday
+	
+-r option is needed to force the rollback if more recent snapshots exist
 
 ### ZFS Send and Receive
 
