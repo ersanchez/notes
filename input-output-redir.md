@@ -2,9 +2,9 @@
 
 ## Three Components
 
-* `stdin` - typically the keyboard
-* `stout` - typically the display
-* `stderr` - system default for error output
+* `stdin` - typically the keyboard and is often referred to by using the number, 0
+* `stout` - typically the display and is referred to by using the number, 1
+* `stderr` - system default for error output and is referred to by using the number, 2
 
 ## Output Redirection
 
@@ -13,7 +13,21 @@
 * `<` - (single 'less than') is used to import the contents of the file into the command line - you can imagine using this for some command that you absolutely have to get right that already exists as text in a file
 * `|` - pipes are used to take the output of one command and use it as the input into another command
 
-## Example
+## Examples
+
+Here are some examples of how I have used some of these tools in real life.
+
+### Making a List of Files
+
+Someone once asked me for a listing of all the photos in a directory that contained multiple thousands of image files.
+
+I was able to quickly accomplish the task:
+
+	$ ls > listOfImages
+
+Here I used the `ls` command to list the files. Then I used the `>` operator to send the output of `ls` directly to a file - completely bypassing `stdout` - my display.
+
+### Sorting and Deduping a List of Email Addresses
 
 Imagine you had a file that contained thousands of email address - one on each line - that you need to deduplicate and sort in alphabetical order.
 
