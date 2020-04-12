@@ -13,6 +13,10 @@
 * `<` - (single 'less than') is used to import the contents of the file into the command line - you can imagine using this for some command that you absolutely have to get right that already exists as text in a file
 * `|` - pipes are used to take the output of one command and use it as the input into another command
 
+You can redirect the `stderr` by using `2> someFile`. This takes anything that would normally go to `stderr` and it redirects it to `someFile`. In this way, the error messages would go straight to the file and you would not see them on `stdout`, your display.
+
+Let's say that you wanted to redirect the error messages to a file but you _also_ wanted to see them on the screen. You can do this similar to what we did above: `2>&1 someFile`. In this case the `stderr` (represented by the '2') is sent to `someFile` and it is also shown on the screen (thanks to the '&1' part of 2>&1).
+
 ## Examples
 
 Here are some examples of how I have used some of these tools in real life.
@@ -33,7 +37,7 @@ Imagine you had a file that contained thousands of email address - one on each l
 
 You can quickly do this by using some redirection:
 
-	cat unsortedUndedupedList | sort | uniq > sortedList
+	$ cat unsortedUndedupedList | sort | uniq > sortedList
 
 Let's break this apart.
 
