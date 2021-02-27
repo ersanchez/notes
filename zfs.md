@@ -1,10 +1,22 @@
 # ZFS Notes
 
-This version is aimed at FreeBSD. Future revisions will include commands used on GNU/Linux and MacOS.
+This version is aimed at FreeBSD and GNU/Linux. Future revisions will include MacOS.
 
 This note page is intended as an informal stash of commands to help me when I need to quickly replicate an event.
 
 It is not intended to replace the `zfs` or `zpool` manual pages.
+
+## Server Setup
+
+### FreeBSD
+
+FreeBSD comes with ZFS already installed.
+
+### GNU/Linux
+
+Ubuntu server 20.04 installation
+
+	$ sudo apt install zfsutils-linux
 
 ## First Steps
 
