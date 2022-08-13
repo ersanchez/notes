@@ -57,13 +57,19 @@ You can set the sector size property when you are running the `zpool create` com
 
 	$ sudo sysctl vfs.zfs.min_auto_ashift=12
 
+#### SSD TRIM
+
+TRIM lets the operating system instantly erase data on solid state drives (SSD).
+
+Enable this for zpools that live on SSDs by adding the option `autotrim=on` during zpool creation.
+
 #### Create a Mirrored Pool
 
 Note, by default the new pool will be mounted at the root of the filesystem. You can change this if you want - check out the [man][manzpoolF] page.
 
 You can create a zpool out of two disks (disk1 is `ada0`, `disk2` is ada1)jthat will be mirrors (exactly the same):
 
-	$ sudo zpool create -o ashift=12 newPoolName mirror ada0 ada1
+	$ sudo zpool create -o ashift=12 -o autortrim=on newPoolName mirror ada0 ada1
 
 This creates a new mirrored pool named "newPoolName" using disks `ada0` and `ada1`.
 
@@ -77,7 +83,7 @@ RAIDZ pools are cool because they can withstand the loss of X number of disks wi
 
     `$ sudo zpool create`
 
-	`$ sudo zpool create -o ashift=12 newPoolName raidZtype ada0 ada1 ada2 ada3`
+	`$ sudo zpool create -o ashift=12 -o autotrim=on newPoolName raidZtype ada0 ada1 ada2 ada3`
 	
 	where `raidZtype` is either `raidz`, `raidz2`, `raidz3`
 
