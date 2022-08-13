@@ -33,13 +33,13 @@ Use Bidule0hm's [calculator][calc] to determine how the level of redundancy (mir
 
 Determine the names of the disks in the system. 
 
-* FreeBSD
+* FreeBSD   
 
-	$ sudo camcontrol devlist
+	`$ sudo camcontrol devlist`
 	
-* Linux
+* Linux   
 
-	$ sudo hdparm -I /dev/sd**X**
+	`$ sudo hdparm -I /dev/sd**X**`
 
 This will print a listing of the hardware currently in use. Determine which disks will be used in the new zpool. Be sure to backup any data that used to live on the disk before creating the zpool to avoid data loss.
 
@@ -73,9 +73,11 @@ RAIDZ pools are cool because they can withstand the loss of X number of disks wi
 * `raid2` can withstand the loss of two disks
 * `raid3` can withstand the loss of three disks    
 
-    $ sudo zpool create
+    `$ sudo zpool create`
 
-	$ sudo zpool create newPoolName raidZtype ada0 ada1 ada2 ada3
+	`$ sudo zpool create -o ashift=12 newPoolName raidZtype ada0 ada1 ada2 ada3`
+	
+	where `raidZtype` is either `raidz`, `raidz2`, `raidz3`
 
 ### ZFS Filesystem
 
@@ -99,7 +101,11 @@ Now that we have that out of the way, let's create the ZFS filesystem
 
 In ZFS filesystems are cheap - make tons of them. This makes it easier manipulate them later.
 
-	$ sudo zfs create -o compress=lz4 newPoolName/newFilesystemName
+	$ sudo zfs create newPoolName/newFilesystemName
+	
+Customized
+
+	$ sudo zfs create -o compress=lz4 -o feature@large_blocks=enabled newPoolName/newFilesystemName
 
 ## Routine Events
 
