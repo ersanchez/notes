@@ -23,7 +23,7 @@ Ubuntu server 20.04 installation
 This section details commands used for:
 
 * creating a zpool
-* creating a zfs filesystem
+* creating a ZFS filesystem
 
 ### Creating a `zpool`
 
@@ -78,8 +78,8 @@ This creates a new mirrored pool named "newPoolName" using disks `ada0` and `ada
 RAIDZ pools are cool because they can withstand the loss of X number of disks without resulting in a failure of the pool:
 
 * `raidz` (same as `raidz1`) can withstand the loss of one disk
-* `raid2` can withstand the loss of two disks
-* `raid3` can withstand the loss of three disks    
+* `raidz2` can withstand the loss of two disks
+* `raidz3` can withstand the loss of three disks    
 
     `$ sudo zpool create`
 
@@ -105,7 +105,7 @@ The passphrase can be anywhere between 8 and 512 bytes long. Whereas both hex an
 
 You'll be prompted twice for the encryption passphrase.
 
-One more note, any child zfs directories will inherit the encryption of the parent ZFS filesystem.
+One more note, any child ZFS directories will inherit the encryption of the parent ZFS filesystem.
 
 **NOTE**: If you enable encryption, you will need to enter the key each time you startup the system. This may or may not be desirable depending on the demands on your system.
 
@@ -113,7 +113,7 @@ One more note, any child zfs directories will inherit the encryption of the pare
 
 At the time of this edit, lz4 appears to be the most effective compression algorithm for general use.
 
-If you will have database storage on the zfs filesystem, you may need to choose a different compression setting.
+If you will have database storage on the ZFS filesystem, you may need to choose a different compression setting.
 
 #### File Size
 
@@ -177,8 +177,8 @@ See snapshots in a specific directory:
 This section details recipes to use for the following events:
 
 * restoring from a specific snapshot
-* zfs send and receive - for example, moving a zfs filesystem from one zpool to another zpool
-* incremental zfs send and receive - for example backing up a zfs filesystem to a remote location or USB disk
+* ZFS send and receive - for example, moving a ZFS filesystem from one zpool to another zpool
+* incremental ZFS send and receive - for example backing up a ZFS filesystem to a remote location or USB disk
 
 ### Restore From Snapshot
 
@@ -188,7 +188,7 @@ This section details recipes to use for the following events:
 
 ### ZFS Send and Receive
 
-You can move a zfs filesystem from one zpool to another zpool (same or remote computer). Using zfs send and receive buys you error checking on the receiving end. This is more desireable than `dd` or `rsync`.
+You can move a ZFS filesystem from one zpool to another zpool (same or remote computer). Using ZFS send and receive buys you error checking on the receiving end. This is more desireable than `dd` or `rsync`.
 
 Prior to sending and receiving over ssh you have to consider which user (person or automated process) will be doing the send and receive and what permissions that user has on the origin computer and on the remote computer.
 
@@ -212,7 +212,7 @@ On the receiving computer:
 
 #### Move a ZFS Filesystem
 
-This section is for making the first move of a zfs dataset from an original zpool to a new zpool. Making incremental updates is included in the next section.
+This section is for making the first move of a ZFS dataset from an original zpool to a new zpool. Making incremental updates is included in the next section.
 
 First determine the name of the most recent snapshot. This snapshot will include the **entire** contents of the zfs filesystem as it was on the date/time of the snapshot. The snapshot might be 100kB and the entire zfs filesystem may be 100 TB. Run `zfs list` to see the size of the zfs filesystem.
 
@@ -230,9 +230,9 @@ If there are no shapshots of the zfs filesystem that you wish to move, create on
 	
 Use something descriptive for the TIMESTAMP such as the [ISO8601][timestamp] time/date representation.
 
-In this scenario, I will send (copy) a zfs filesystem from the origin to a remote computer over `ssh`. The zfs filesystem to be sent (copied) is named `oringinalFS` living on the `oringinalPool`. It is being sent (copied) to `remotePool` on the remote computer.
+In this scenario, I will send (copy) a ZFS filesystem from the origin to a remote computer over `ssh`. The ZFS filesystem to be sent (copied) is named `oringinalFS` living on the `oringinalPool`. It is being sent (copied) to `remotePool` on the remote computer.
 
-Note: the zfs dataset that is being moved cannot already exist on the target zpool. If a snapshot of the zfs dataset already exists on the target zpool, you _really_ want to do an incremental update, so, skip to the next section.
+Note: the ZFS dataset that is being moved cannot already exist on the target zpool. If a snapshot of the ZFS dataset already exists on the target zpool, you _really_ want to do an incremental update, so, skip to the next section.
 
 	# zfs send originalPool/originalFS@TIMESTAMP | ssh user@remotehost zfs receive remotePool
 
