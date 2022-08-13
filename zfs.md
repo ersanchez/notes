@@ -109,6 +109,15 @@ One more note, any child ZFS directories will inherit the encryption of the pare
 
 **NOTE**: If you enable encryption, you will need to enter the key each time you startup the system. This may or may not be desirable depending on the demands on your system.
 
+**NOTE 2**: Your encrypted ZFS filesystem will automagically be mounted and unlocked when you create it. After a reboot, you will need to do two things _in order_ before you can use your encrypted filesystems:
+
+1. unlock it
+2. mount it
+
+	`$ sudo zfs load-key -r -a zpoolName/zfsDataset    `
+	
+	`$ sudo zfs mount -a` to mount _all_ zfs filesystems or `$ sudo zfs mount zpoolName/zfsDataset` to mount a specific dataset
+
 #### Compression
 
 At the time of this edit, lz4 appears to be the most effective compression algorithm for general use.
