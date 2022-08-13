@@ -91,6 +91,24 @@ RAIDZ pools are cool because they can withstand the loss of X number of disks wi
 
 Before creating a ZFS filesystem there are a few things to consider.
 
+#### Encryption
+
+You *must* set this when creating your ZFS filesystem. You can't encrypt an existing ZFS filesystem.
+
+If you want to encrypt your ZFS filesystem set the following options in your `zfs create` command:
+
+* `encryption=[algorithm]` - `aes-256-gcm` is the current default
+* `keylocation=[location]` - this can be the path to somewhere on disk or you can ask the system to `prompt` you for it
+* `keyformat=[format]` - passphrase|hex|raw
+
+The passphrase can be anywhere between 8 and 512 bytes long. Whereas both hex and raw must be exactly 32 bytes long.
+
+You'll be prompted twice for the encryption passphrase.
+
+One more note, any child zfs directories will inherit the encryption of the parent ZFS filesystem.
+
+**NOTE**: If you enable encryption, you will need to enter the key each time you startup the system. This may or may not be desirable depending on the demands on your system.
+
 #### Compression
 
 At the time of this edit, lz4 appears to be the most effective compression algorithm for general use.
@@ -113,7 +131,12 @@ In ZFS filesystems are cheap - make tons of them. This makes it easier manipulat
 	
 Customized
 
-	$ sudo zfs create -o compress=lz4 -o feature@large_blocks=enabled newPoolName/newFilesystemName
+	$ sudo zfs create -o compress=lz4\ 
+	-o feature@large_blocks=enabled\ 
+	-o encryption=aes-256-gcm\ 
+	-o keylocation=prompt\
+	-o keyformat=passphrase\
+	newPoolName/newFilesystemName
 
 ## Routine Events
 
