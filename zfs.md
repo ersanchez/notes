@@ -29,9 +29,15 @@ First off you need to determine which disks you will use and what type of redund
 
 Use Bidule0hm's [calculator][calc] to determine how the level of redundancy (mirror, raidz1, raidz2, raidz3) will impact your pool capacity. I intentionally left off a stripe of disks. In a striped set, the loss of one disk will cause the entire pool to fail - too risky in my book.
 
-Determine the names of the disks in the system.
+Determine the names of the disks in the system. 
+
+* FreeBSD
 
 	$ sudo camcontrol devlist
+	
+* Linux
+
+	# hdparm -I /dev/sd**_X_**
 
 This will print a listing of the hardware currently in use. Determine which disks will be used in the new zpool. Be sure to backup any data that used to live on the disk before creating the zpool to avoid data loss.
 
