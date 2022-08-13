@@ -25,6 +25,8 @@ This section details commands used for:
 
 ### Creating a `zpool`
 
+#### Redundancy
+
 First off you need to determine which disks you will use and what type of redundancy you need.
 
 Use Bidule0hm's [calculator][calc] to determine how the level of redundancy (mirror, raidz1, raidz2, raidz3) will impact your pool capacity. I intentionally left off a stripe of disks. In a striped set, the loss of one disk will cause the entire pool to fail - too risky in my book.
@@ -37,9 +39,21 @@ Determine the names of the disks in the system.
 	
 * Linux
 
-	# hdparm -I /dev/sd**_X_**
+	$ sudo hdparm -I /dev/sd**_X_**
 
 This will print a listing of the hardware currently in use. Determine which disks will be used in the new zpool. Be sure to backup any data that used to live on the disk before creating the zpool to avoid data loss.
+
+#### Sector Size
+
+_Most_ hard drives that you can buy today use a 4k sector size. Keep in mind that sometimes modern SSDs report having a 512k sector size when they really have a 4k (or larger) sector size.
+
+This is set using the `ashift` property. `ashift=12` is the setting to use for disks with a 4k sector size.
+
+**Note**: unless you specify this, your zpool will default to a 512b sector size.
+
+You can set the sector size property when you are running the `zpool create` command. Better yet, in FreeBSD, you can add a line to your `/etc/sysctl.conf` file to make sure that the default changes to a 4096k sector size (`ashift=12`) by running this command:
+
+	$ sudo sysctl vfs.zfs.min_auto_ashift=12
 
 #### Create a Mirrored Pool
 
@@ -47,7 +61,7 @@ Note, by default the new pool will be mounted at the root of the filesystem. You
 
 You can create a zpool out of two disks (disk1 is `ada0`, `disk2` is ada1)jthat will be mirrors (exactly the same):
 
-	$ sudo zpool create newPoolName mirror ada0 ada1
+	$ sudo zpool create -o ashift=12 newPoolName mirror ada0 ada1
 
 This creates a new mirrored pool named "newPoolName" using disks `ada0` and `ada1`.
 
