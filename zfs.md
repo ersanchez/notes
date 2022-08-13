@@ -41,7 +41,7 @@ Determine the names of the disks in the system.
 	
 * Linux   
 
-	`$ sudo hdparm -I /dev/sd**X**`
+	`$ sudo hdparm -I /dev/sdX`
 
 This will print a listing of the hardware currently in use. Determine which disks will be used in the new zpool. Be sure to backup any data that used to live on the disk before creating the zpool to avoid data loss.
 
