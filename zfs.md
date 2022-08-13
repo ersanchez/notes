@@ -2,6 +2,8 @@
 
 This note page is intended as an informal stash of commands to help me when I need to quickly replicate an event.
 
+These notes are intended for a homelab user not a datacenter administrator.
+
 It is not intended to replace the `zfs` or `zpool` manual pages.
 
 ## Server Setup
