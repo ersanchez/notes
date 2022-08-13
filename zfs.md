@@ -197,7 +197,9 @@ This section details recipes to use for the following events:
 
 ### ZFS Send and Receive
 
-**WARNING:** If you are sending and receiving encrypted ZFS datasets you must add the `-w` flag to transfer in a raw format. If you do not add this flag, you will send UNencrypted data!
+* * * * * * * * * * * * * * * * * * * * * * * 
+**WARNING: _If you are sending and receiving encrypted ZFS datasets you must add the `-w` flag to transfer in a raw format. If you do not add this flag, you will send UNencrypted data!_**
+* * * * * * * * * * * * * * * * * * * * * * * 
 
 You can move a ZFS filesystem from one zpool to another zpool (same or remote computer). Using ZFS send and receive buys you error checking on the receiving end. This is more desireable than `dd` or `rsync`.
 
