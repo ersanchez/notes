@@ -1,7 +1,5 @@
 # ZFS Notes
 
-This version is aimed at FreeBSD and GNU/Linux. Future revisions will include MacOS.
-
 This note page is intended as an informal stash of commands to help me when I need to quickly replicate an event.
 
 It is not intended to replace the `zfs` or `zpool` manual pages.
@@ -59,11 +57,29 @@ RAIDZ pools are cool because they can withstand the loss of X number of disks wi
 
 	$ sudo zpool create newPoolName raidZtype ada0 ada1 ada2 ada3
 
-### Create a ZFS Filesystem
+### ZFS Filesystem
 
-In zfs filesystems are cheap - make tons of them. This makes it easier manipulate them later.
+Before creating a ZFS filesystem there are a few things to consider.
 
-	$ sudo zfs create newPoolName/newFilesystemName
+#### Compression
+
+At the time of this edit, lz4 appears to be the most effective compression algorithm for general use.
+
+If you will have database storage on the zfs filesystem, you may need to choose a different compression setting.
+
+#### File Size
+
+Use the default settings for typical office files (.docx, .pdf, etc.)
+
+If your ZFS filesystem will store huge files (ex: Blu Ray, CD-ROM, etc.) consider enabling the large block feature. **NOTE**: the large_blocks feature must be enabled on the zpool.
+
+#### Creating the ZFS Filesystem
+
+Now that we have that out of the way, let's create the ZFS filesystem
+
+In ZFS filesystems are cheap - make tons of them. This makes it easier manipulate them later.
+
+	$ sudo zfs create -o compress=lz4 newPoolName/newFilesystemName
 
 ## Routine Events
 
