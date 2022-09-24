@@ -6,4 +6,4 @@ List all snap packages:
 
 Refresh an individual snap package:
 
-    $ sudo snap refresh _packageName_
+    $ sudo snap refresh packageName
