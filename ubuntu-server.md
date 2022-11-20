@@ -10,6 +10,19 @@ Change hostname:
   
 Note: be sure to update `/etc/hosts` with the new hostname
 
+## Users
+
+Here is how to create users with a specific user id (uid) and a specific group id (gid).
+
+1. create a group for the user
+
+        $ sudo groupadd -g GID groupName
+
+3. create the user
+
+        $ sudo useradd -u UID -g GID -m -s /bin/bash userName
+    
+
 ## Networking
 
 Configure ip address of the server using Netplan. Configuration flies are in `/etc/netplan`. Look for a \*.yaml file.
