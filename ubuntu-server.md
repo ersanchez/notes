@@ -58,3 +58,8 @@ Apply your changes:
 
 << coming soon >>
           
+### DNS
+
+Sytemd used `systemd-resolved` for DNS. Type `resolvectl` to see your DNS servers:
+
+    $ resolvectl
