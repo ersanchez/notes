@@ -76,3 +76,42 @@ Apply your changes:
 Sytemd used `systemd-resolved` for DNS. Type `resolvectl` to see your DNS servers:
 
     $ resolvectl
+
+## Virtualization
+
+This uses KVM and QEMU.
+
+The default directory for the qcow images in KVM is `/var/lib/libvirt/images`.
+
+Install all of the dependencies:
+
+    $ sudo apt install bridge-utils\
+    libvirt-clients\
+    libvirt-daemon-system\
+    qemu-system-x86
+    
+This will install a few hundred megabytes of dependencies. 
+
+Stop `libvirtd`:
+
+    $ sudo systemctl stop libvirtd
+
+Verify that these groups exist: `kvm` & `libvirt`. If they do not exist, create them.
+
+Also verify that your user is in these two groups. If not, add your user to these two groups.
+
+    $ sudo usermod -aG kvm USERNAME
+    
+Set the `kvm` group permissions to access the default vm directory (see directory location above):
+
+    $ sudo chown :kvm /var/lib/libvirt/images
+    
+Set permissions on the vm directory so that `kvm` group members can read & write to it:
+
+    $ sudo chmod g+rw /var/lib/libvirt/images
+    
+Restart libvirtd and verify it is running:
+
+    $ sudo systemctl start libvirtd
+    $ sudo systemctl status libvirtd
+   
