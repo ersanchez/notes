@@ -44,36 +44,17 @@ Replace the line `dhcp4: true` with the desired ip address. For example, if you 
             SSIDofTheNetworkYoureConnectingTo:
               password: passwordToYourWifiNetwork
           addresses: [192.168.1.99/24]    # your selected ip address
-          gateway4: 192.168.1.1           # add your router's ip here
-          nameservers: [1.1.1.1, 1.1.1.2] # insert your DNS servers here
-          
-### Static Lease
+          routes:
+           - to: default
+             via: 192.168.1.1           # add your router's ip here
+          nameservers: 
+            addresses: [1.1.1.1, 1.1.1.2] # insert your DNS servers here
 
-This is how the yaml file will look if you set up the server to connect via wifi from the installer:
-
-    # This is the network config written by 'subiquity'
-    network:
-      version: 2
-      wifis:
-        wlp3s0:
-          access-points:
-            SSIDofTheNetworkYoureConnectingTo:
-              password: passwordToYourWifiNetwork
-          dhcp4: true
-          
-Replace the line `dhcp4: true` with the desired ip address. For example, if you want to have the ip address 192.168.1.99, you would add this value _after_ the `dhcp4: true` line along with the appropriate subnet mask:
-
-    # This is the network config written by 'subiquity'
-    network:
-      version: 2
-      wifis:
-        wlp3s0:
-          access-points:
-            SSIDofTheNetworkYoureConnectingTo:
-              password: passwordToYourWifiNetwork
-          dhcp4: true
-          addresses: [192.168.1.99/24]  # still using DHCP but you pick the ip address
-          
 Apply your changes:
 
     $ sudo netplan apply
+          
+### Static Lease
+
+<< coming soon >>
+          
