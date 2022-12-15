@@ -38,31 +38,25 @@ This is how the yaml file will look if you set up the server to connect via wifi
 
     # This is the network config written by 'subiquity'
     network:
-      version: 2
-      wifis:
-        wlp3s0:
-          access-points:
-            SSIDofTheNetworkYoureConnectingTo:
-              password: passwordToYourWifiNetwork
+      ethernets:
+        enp0s25:
           dhcp4: true
+      version: 2
           
 Replace the line `dhcp4: true` with the desired ip address. For example, if you want to have the ip address 192.168.1.99, you would add this line in the place of the `dhcp4: true` line along with the appropriate subnet mask:
 
     # This is the network config written by 'subiquity'
     network:
-      version: 2
-      wifis:
-        wlp3s0:
-          access-points:
-            SSIDofTheNetworkYoureConnectingTo:
-              password: passwordToYourWifiNetwork
-          addresses: [192.168.1.99/24]    # your selected ip address
+      ethernets:
+        enp0s25:
+          addresses: [192.168.1.250/24]
           routes:
            - to: default
-             via: 192.168.1.1           # add your router's ip here
-          nameservers: 
-            addresses: [1.1.1.1, 1.1.1.2] # insert your DNS servers here
-
+             via: 192.168.1.1
+          nameservers:
+            addresses: [192.168.1.1]
+      version: 2
+      
 Apply your changes:
 
     $ sudo netplan apply
