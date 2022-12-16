@@ -18,9 +18,13 @@ Here is how to create users with a specific user id (uid) and a specific group i
 
         $ sudo groupadd -g GID groupName
 
-3. create the user
+1. create the user
 
         $ sudo useradd -u UID -g GID -m -s /bin/bash userName
+        
+1. set the new user's password
+
+        $ sudo passwd <newusername>
     
 
 ## Networking
