@@ -25,6 +25,10 @@ Here is how to create users with a specific user id (uid) and a specific group i
 1. set the new user's password
 
         $ sudo passwd <newusername>
+        
+1. if you want that user to be in the sudo group, add 'em!
+
+        $ sudo adduser <newusername> sudo       
     
 
 ## Networking
