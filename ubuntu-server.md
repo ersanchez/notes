@@ -100,9 +100,13 @@ Stop `libvirtd`:
 
 Verify that these groups exist: `kvm` & `libvirt`. If they do not exist, create them.
 
+    $ sudo groupadd kvm
+    $ sudo groupadd libvirt
+
 Also verify that your user is in these two groups. If not, add your user to these two groups.
 
     $ sudo usermod -aG kvm USERNAME
+    $ sudo usermod -aG libvirt USERNAME
     
 Set the `kvm` group permissions to access the default vm directory (see directory location above):
 
