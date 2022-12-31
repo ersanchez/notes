@@ -42,7 +42,7 @@ Two options for setting the ip address:
 
 ### Static ip
 
-This is how the yaml file will look if you set up the server to connect via wifi from the installer:
+This is how the yaml file will look if you set up the server to connect via one of the ethernet ports from the installer:
 
     # This is the network config written by 'subiquity'
     network:
@@ -103,7 +103,7 @@ Verify that these groups exist: `kvm` & `libvirt`. If they do not exist, create 
     $ sudo groupadd kvm
     $ sudo groupadd libvirt
 
-Also verify that your user is in these two groups. If not, add your user to these two groups.
+Also verify that your user is in these two groups. If not, add your user to these two groups. Also, add any other users who will be creating or accessing virtual machines on this server.
 
     $ sudo usermod -aG kvm USERNAME
     $ sudo usermod -aG libvirt USERNAME
