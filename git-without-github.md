@@ -93,7 +93,7 @@ Navigate to the location your laptop where you want the git repository to be loc
 Next, on your laptop issue the following command to clone the repository from the server to the laptop:
 
     $ git clone alice@example.com:/home/alice/script-repo.git
-    Enter passphrase for key alice_id_ed25519 (_or something like that_):
+    Enter passphrase for key alice_id_ed25519: # (or something like that)
     remote: Enumerting objects: done.
     remote: Counting objects: done.
     remote: Compressing objects: done.
