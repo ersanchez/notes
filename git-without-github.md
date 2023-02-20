@@ -99,9 +99,9 @@ Now you have the git repository cloned onto your laptop as `server-scripts-lapto
 
 Notice that the newly-cloned directory does not have the `.git` suffix on the filename.
 
-On your laptop, you can now make changes to the files in the `server-scripts-laptop-copy` repository. Then you can use the normal `git add`, `git commit`, `git push`, and `git pull` to synchronize changes between your laptop and your server.
+On your laptop, you can now make changes to the files in the `server-scripts-laptop-copy` repository. Then you can use the `git add`, `git commit`, `git push`, and `git pull` commands to synchronize changes between your laptop and your server.
 
-**Important note**: In our example, we took a directory on the server `server-scripts`, we initialized it as a git repository, and we cloned the git repository into a bare repository `script-bare-repo.git`. When we cloned `script-bare-repo.git` from our server to our laptop, the resulting repository on the laptop was renamed `server-scripts-laptop-copy` (no `.git` suffix). Any changes made on the laptop's `server-scripts-laptop-copy` repository  that are pushed/pulled to the server will **_only_** affect the `script-bare-repo.git` bare repository on the server **NOT** the original `server-scripts` repository on the server.
+**Important note**: In our example, we took a directory on the server `server-scripts`, we initialized it as a git repository, and we cloned the git repository into a bare repository `script-bare-repo.git`. When we cloned `script-bare-repo.git` from our server to our laptop, the we renamed the resulting repository on the laptop to `server-scripts-laptop-copy` (no `.git` suffix). Any changes made on the laptop's `server-scripts-laptop-copy` repository that are pushed/pulled to the server will **_only_** affect the `script-bare-repo.git` bare repository on the server **NOT** the original `server-scripts` repository on the server.
 
 This brings me to my final point: tracking changes on the server. 
 
@@ -125,6 +125,7 @@ We now have the following files and capabilities:
 * server: `script-bare-repo.git`
     * can be pulled from _or_ pushed to _from_ `server-scripts-laptop-copy` the laptop
     * can be pulled from _or_ pushed to _from_ `server-scripts-on-server` the server
+    * can be pulled from _or_ pushed to _from_ any other computer that clones this bare repository
 * server: `server-scripts-on-server` 
     * can push/pull to `script-bare-repo.git` on the server
 * laptop: `server-scripts-laptop-copy`
