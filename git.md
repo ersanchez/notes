@@ -34,6 +34,8 @@ Add to the **local** configuration file from the command line
 
     $ git config --local user.name "Alice Brooks"
     $ git config --local user.email "aliceb@example.com"
+    $ git config --local core.editor "vim"
+
     
  This will enter the user information into the `.git/config` direcotry in your working repository (the directory you are working in right now).
  
@@ -41,12 +43,23 @@ Add to the **global** configuration file from the command line
 
     $ git config --global user.name "Ms. Alice B. Brooks"
     $ git config --global user.email "abrooks4@example.com"
+    $ git config --local core.editor "emacs"
+
 
 Add to the **system** configuration file from the command line
 
     $ git config --system user.name "Alice B. Brooks, CPA"
     $ git config --system user.email "ab4@office23.example.com"
+    $ git config --local core.editor "geany"
+
        
+Finally, here is an example of the actual configuration file. Your configuration file will have more information, but here is the equivalent information to what we added above.
+
+    [user]
+    	email = aliceb@example.com
+		name = Alice Brooks
+    [core]
+    	editor = vim
 
 ## Start a New Project
 
