@@ -88,17 +88,17 @@ This is possible because that `.git` directory in the repository will have the U
 
 Navigate to the location your laptop where you want the git repository to be located. Let's say that you want to put the cloned repository in a specific directory named `git-files` on your laptop:
 
-   $ cd /home/alice/git-files/
+    $ cd /home/alice/git-files/
 
 Next, on your laptop issue the following command to clone the repository from the server to the laptop:
 
-   $ git clone alice@example.com:/home/alice/script-repo.git
-   Enter passphrase for key alice_id_ed25519 (_or something like that_):
-   remote: Enumerting objects: done.
-   remote: Counting objects: done.
-   remote: Compressing objects: done.
-   remote: Total 233, reused 0, pack-reused 0
-   Receiving objects: 100% (233/233), done.
+    $ git clone alice@example.com:/home/alice/script-repo.git
+    Enter passphrase for key alice_id_ed25519 (_or something like that_):
+    remote: Enumerting objects: done.
+    remote: Counting objects: done.
+    remote: Compressing objects: done.
+    remote: Total 233, reused 0, pack-reused 0
+    Receiving objects: 100% (233/233), done.
 
 Now you have the git repository cloned onto your laptop as `script-repo`. 
 
