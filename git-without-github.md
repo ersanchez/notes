@@ -32,17 +32,18 @@ Here are some tasks that I will describe:
    * You will clone this bare repository
 
 
-## Detailed Scenarios
+## Detailed Tasks
+
+Here are the tasks we will perform:
+
+* initialize a repository
+* clone the new repository into a bare repository that we can clone onto other computers
 
 ### Initializing a Repository
 
-Let's say you have a directory (folder) filled with scripts that you want track with `git`. Your directory is named `server-scripts` and it lives in your home directory: `/home/alice/server-scripts`. 
+Let's say you have a directory (folder) filled with server configuration scripts that you want track with `git`. Your directory is named `server-scripts` and it lives in your home directory: `/home/alice/server-scripts`. 
 
 We will start by initializing the `server-scripts` directory into a `git` repository. 
-
-Next we will take the newly initialized repository and convert it into a bare repository named `script-repo.git`. The `.git` on the end of the file name helps people identify it as a `git` repo and not just a regular directory. 
-
-**NOTE**: the directory and the repository can have the same name, but guides that use the same names suck because they are very confusing to newbies (_like me_).
 
 Initialize the directory by navigating into the directory and then issuing the `git init` command
 
@@ -52,5 +53,18 @@ Initialize the directory by navigating into the directory and then issuing the `
 You will get several lines of information about how to change the name later on - which you can ignore for now - and one final line that says:
 
 `Initialized empty Git repository in /home/alice/server-scripts/.git/`
+
+When you issued the `git init` command inside the `server-scripts` folder it added a hidden directory, `.git` that contains files and subdirectories that `git` will use to track any changes you make from now on.
+
+### Task: Create a Bare Directory
+
+Next we will take the newly initialized repository and convert it into a bare repository named `script-repo.git`. The `.git` on the end of the file name helps people identify it as a `git` repo and not just a regular directory. 
+
+**NOTE**: the directory and the repository can have the same name, but guides that use the same names suck because they are very confusing to newbies (_like me_).
+
     $ git clone --bare server-scripts script-repo.git
+    Cloning into bare repositoyr 'script-repo.git`...
+    done.
+    
+    
     
