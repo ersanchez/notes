@@ -17,14 +17,6 @@ Here are the things you will need:
 * experience using `git` basic commands like `git add`, `git commit`, etc.
     * this is not intended to be a `git` tutorial
 
-## Initial Conditions
-
-Here are some tasks that I will describe:
-
-1. Create a `git` repository
-1. Clone a repository from your server to your laptop
-1. Clone a repository from your laptop to your server
-
 ## Some Things to Know
 
 * A directory (folder) is not a repository until you initialize it with `git`
@@ -39,21 +31,22 @@ Here are some tasks that I will describe:
 Here are the tasks we will perform:
 
 * initialize a directory into a git repository
-* clone the git repository into a bare repository
-* clone the bare repository onto other computers
+* clone the git repository on the server into a bare repository on the server
+* clone the bare repository from the server to the laptop
+* clone the bare repository from the server to the server (that is _not_ a typo)
 
 ### Initializing a Directory into a `git` Repository
 
-Let's say you have a directory (folder) filled with server configuration scripts that you want track with `git`. Your directory is named `server-scripts` and it lives in your home directory: `/home/alice/server-scripts`. 
+Let's say you have a directory (folder) on your server filled with server configuration scripts that you want track with `git`. Your directory is named `server-scripts` and it lives in your home directory on the server: `/home/alice/server-scripts`. 
 
 We will start by initializing the `server-scripts` directory into a `git` repository. 
 
-Initialize the directory by navigating into the `server-scripts` directory and then issuing the `git init` command
+Initialize the directory into a `git` repository by first navigating into the `server-scripts` directory and then issuing the `git init` command
 
     $ cd /home/alice/server-scripts
     $ git init
     
-You will get several lines of information about how to change the name later on - which you can ignore for now - and one final line that says:
+    # You will get several lines of information about how to change the name later on - which you can ignore for now - and one final line that says:
 
     Initialized empty Git repository in /home/alice/server-scripts/.git/
 
@@ -65,17 +58,17 @@ Next we move up one level in the directory tree.
 
     $ cd /home/alice
 
-After that we will take the newly initialized `git` repository `server-scripts` and convert it into a bare repository named `script-repo.git`. The `.git` on the end of the file name helps people identify it as a `git` repo and not just a regular directory. 
+After that we will take the newly initialized `git` repository `server-scripts` on the server and convert it into a bare repository named `script-bare-repo.git` on the server. The `.git` suffix on the end of the filename helps people recognize that it is a `git` repo and not just a regular directory. 
 
-**NOTE**: the directory and the repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
+**NOTE**: the original directory and the new `git` repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
 
-    $ git clone --bare server-scripts script-repo.git
-    Cloning into bare repository 'script-repo.git`...
+    $ git clone --bare server-scripts script-bare-repo.git
+    Cloning into bare repository 'script-bare-repo.git`...
     done.
     
-Ok, now we are ready to start cloning the bare repository named `script-repo.git`.
+Ok, now we are ready to start cloning the bare repository named `script-bare-repo.git`.
 
-I have some very important points to make about this `script-repo.git` later on in this note. Please read on.
+I have some very important points to make about this `script-bare-repo.git` later on in this note. Please read on.
 
 ### Task: Clone Bare Repository From Server to Laptop
 
@@ -86,13 +79,13 @@ The act of cloning the repository from the server to the laptop will download th
 
 This is possible because that `.git` directory in the repository will have the URL for the server.
 
-Navigate to the location your laptop where you want the git repository to be located. Let's say that you want to put the cloned repository in a specific directory named `git-files` on your laptop:
+On your laptop, nNavigate to the location on your laptop where you want the git repository to be located. Let's say that you want to put the cloned repository in a specific directory named `git-tracked-files` on your laptop:
 
-    $ cd /home/alice/git-files/
+    $ cd /home/alice/git-tracked-files/
 
-Next, on your laptop issue the following command to clone the repository from the server to the laptop:
+On your laptop issue the following command to clone the repository from the server to the laptop:
 
-    $ git clone alice@example.com:/home/alice/script-repo.git
+    $ git clone alice@example.com:/home/alice/script-bare-repo.git
     Enter passphrase for key alice_id_ed25519: # (or something like that)
     remote: Enumerting objects: done.
     remote: Counting objects: done.
@@ -100,16 +93,16 @@ Next, on your laptop issue the following command to clone the repository from th
     remote: Total 233, reused 0, pack-reused 0
     Receiving objects: 100% (233/233), done.
 
-Now you have the git repository cloned onto your laptop as `script-repo`. 
+Now you have the git repository cloned onto your laptop as `script-bare-repo`. 
 
 Notice that the newly-cloned directory does not have the `.git` suffix on the filename.
 
 On your laptop, you can now make changes to the files. Then you can use the normal `git add`, `git commit`, `git push`, and `git pull` to synchronize changes between your laptop and your server.
 
-One important note: In our example, we took a directory on the server `server-scripts`, we initialized it as a git repository, and we cloned the git repository into a bare repository `script-repo.git`. When we cloned `script-repo.git` from our server to our laptop, the resulting repository on the laptop was named `script-repo` (no `.git` suffix). Any changes made on the laptop's `script-repo` repository  that are pushed/pulled to the server will **_only_** affect the `script-repo.git` bare repository on the server **NOT** the original `server-scripts` repository on the server.
+**Important note**: In our example, we took a directory on the server `server-scripts`, we initialized it as a git repository, and we cloned the git repository into a bare repository `script-bare-repo.git`. When we cloned `script-bare-repo.git` from our server to our laptop, the resulting repository on the laptop was named `script-bare-repo` (no `.git` suffix). Any changes made on the laptop's `script-bare-repo` repository  that are pushed/pulled to the server will **_only_** affect the `script-bare-repo.git` bare repository on the server **NOT** the original `server-scripts` repository on the server.
 
 This brings me to my final point: tracking changes on the server. 
 
-Since we cloned `server-scripts` on the server to a bare repository `script-repo.git` on the server, we no longer have a connection between `server-scripts` and `script-repo.git` - both on the server. While I am certain there is a way to ...
+Since we cloned `server-scripts` on the server to a bare repository `script-bare-repo.git` on the server, we no longer have a connection between `server-scripts` and `script-bare-repo.git` - both on the server. While I am certain there is a way to ...
     
     
