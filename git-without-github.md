@@ -1,15 +1,19 @@
 # Git Without Github
 
-Github is fantastic! That said, there may be a time when you need to clone, push, and pull to a git repository that does not live on Github. This note explains how to accomplish this.
+Github is fantastic! 
 
-I am capturing this information here because almost every bit of documentation online assumes that you are either using Github or Gitlab. There are not many guides that describe how to use git without also using Github or Gitlab.
+That said, there may be a time when you need to clone, push, and pull to a `git` repository that does not live on Github but rather on a remote computer not set up like Github. This note explains how to accomplish this.
+
+I am capturing this information here because _almost_ every bit of documentation I could find online assumes that you are either using Github or Gitlab. There are not many guides that describe how to use `git` without also using Github or Gitlab.
 
 ## Requirements
 
 Here are the things you will need:
 
 * access to a remote server - I will use "server" to describe this computer from now on
+  * with `git` installed
 * access to a client computer - I am using a laptop, so I will call it "laptop" in this note
+  * with `git` installed
 
 ## Initial Conditions
 
@@ -20,3 +24,6 @@ Here are some scenarios that I can envision:
 1. You have a directory on either computer that is not _yet_ a git repository that you want to start tracking using git and then clone in either direction
 
 ## Some Things to Know
+
+* A directory (folder) is not a repository until you initialize it with `git`
+* You can't just start syncing a repository back-and-forth between your server and your laptop - you must first export that existing repository into what is called a _bare_ repository
