@@ -30,19 +30,19 @@ If your user information exists in two or more levels listed here, the higher le
 
 As mentioned above there are two ways to enter user information. Let's start at looking at the command line. You can enter your information using this git command: `git config --level user.attribute "Name"` where --level will be either `--local` or `--global`. Here's an example of how to enter user information on the command line:
 
-1. Add to the **local** configuration file from the command line
+Add to the **local** configuration file from the command line
 
     $ git config --local user.name "Alice Brooks"
     $ git config --local user.email "aliceb@example.com"
     
  This will enter the user information into the `.git/config` direcotry in your working repository (the directory you are working in right now).
  
-2. Add to the **global** configuration file from the command line
+Add to the **global** configuration file from the command line
 
     $ git config --global user.name "Ms. Alice B. Brooks"
     $ git config --global user.email "abrooks4@example.com"
 
-3. Add to the **system** configuration file from the command line
+Add to the **system** configuration file from the command line
 
     $ git config --system user.name "Alice B. Brooks, CPA"
     $ git config --system user.email "ab4@office23.example.com"
