@@ -11,9 +11,9 @@ I am capturing this information here because _almost_ every bit of documentation
 Here are the things you will need:
 
 * SSH access to a remote server - I will use "server" to describe this computer from now on
-  * with `git` installed
+    * with `git` installed
 * access to a client computer - I am using a laptop, so I will call it "laptop" in this note
-  * with `git` installed
+    * with `git` installed
 
 ## Initial Conditions
 
@@ -26,10 +26,10 @@ Here are some tasks that I will describe:
 ## Some Things to Know
 
 * A directory (folder) is not a repository until you initialize it with `git`
- * After you initialize the directory it becomes a repository
+   * After you initialize the directory it becomes a repository
 * You can't just start syncing a repository back-and-forth between your server and your laptop
- * You must first export that existing repository into what is called a _bare_ repository
- * You will clone this bare repository
+   * You must first export that existing repository into what is called a _bare_ repository
+   * You will clone this bare repository
 
 
 ## Detailed Scenarios
