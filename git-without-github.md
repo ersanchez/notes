@@ -11,9 +11,9 @@ I am capturing this information here because _almost_ every bit of documentation
 Here are the things you will need:
 
 * SSH access to a remote server - I will use "server" to describe this computer from now on
-    * with `git` installed
+    * with `git` installed & configured with your user information
 * access to a client computer - I am using a laptop, so I will call it "laptop" in this note
-    * with `git` installed
+    * with `git` installed & configured with your user information
 
 ## Initial Conditions
 
@@ -30,6 +30,7 @@ Here are some tasks that I will describe:
 * You can't just start syncing a repository back-and-forth between your server and your laptop
    * You must first export that existing repository into what is called a _bare_ repository
    * You will clone this bare repository
+* I will use an imaginary user named Alice in the demonstration steps
 
 
 ## Detailed Tasks
@@ -45,7 +46,7 @@ Let's say you have a directory (folder) filled with server configuration scripts
 
 We will start by initializing the `server-scripts` directory into a `git` repository. 
 
-Initialize the directory by navigating into the directory and then issuing the `git init` command
+Initialize the directory by navigating into the `server-scripts` directory and then issuing the `git init` command
 
     $ cd /home/alice/server-scripts
     $ git init
@@ -58,13 +59,43 @@ When you issued the `git init` command inside the `server-scripts` folder it add
 
 ### Task: Create a Bare Directory
 
-Next we will take the newly initialized repository and convert it into a bare repository named `script-repo.git`. The `.git` on the end of the file name helps people identify it as a `git` repo and not just a regular directory. 
+Next we move up one level in the directory tree. 
 
-**NOTE**: the directory and the repository can have the same name, but guides that use the same names suck because they are very confusing to newbies (_like me_).
+   $ cd /home/alice
+
+After that we will take the newly initialized repository and convert it into a bare repository named `script-repo.git`. The `.git` on the end of the file name helps people identify it as a `git` repo and not just a regular directory. 
+
+**NOTE**: the directory and the repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
 
     $ git clone --bare server-scripts script-repo.git
-    Cloning into bare repositoyr 'script-repo.git`...
+    Cloning into bare repository 'script-repo.git`...
     done.
     
+Ok, now we are ready to start cloning the bare repository named `script-repo.git`.
+
+### Task: Clone Bare Repository From Server to Laptop
+
+The act of cloning the repository from the server to the laptop will download the git repository and set the repository up to:
+
+* pull changes from the server to the laptop
+* push changes from the laptop to the server
+
+This is possible because that `.git` directory in the repository will have the URL for the server.
+
+Navigate to the location your laptop where you want the git repository to be located. Let's say that you want to put the cloned repository in a specific directory named `git-files` on your laptop:
+
+   $ cd /home/alice/git-files/
+
+Next, on your laptop you will issue the following command to clone the repository from the server to the laptop:
+
+   $ git clone alice@example.com:/home/alice/script-repo.git
+   Enter passphrase for key alice_id_ed25519 (_or something like that_):
+   remote: Enumerting objects: done.
+   remote: Counting objects: done.
+   remote: Compressing objects: done.
+   remote: Total 233, reused 0, pack-reused 0
+   Receiving objects: 100% (233/233), done.
+
+
     
     
