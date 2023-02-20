@@ -60,7 +60,7 @@ Next we move up one level in the directory tree.
 
 After that we will take the newly initialized `git` repository `server-scripts` on the server and convert it into a bare repository named `script-bare-repo.git` on the server. The `.git` suffix on the end of the filename helps people recognize that it is a `git` repo and not just a regular directory. 
 
-**NOTE**: the original directory and the new `git` repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
+**NOTE**: the `git` repository and the new _bare_ `git` repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
 
     $ git clone --bare server-scripts script-bare-repo.git
     Cloning into bare repository 'script-bare-repo.git`...
