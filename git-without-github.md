@@ -25,6 +25,8 @@ Here are the things you will need:
    * You must first export that existing repository into what is called a _bare_ repository
    * You will clone this bare repository
 * I will use an imaginary user named Alice in the demonstration steps
+* Existing repositories on your laptop that synchronize with an online service like Github or Gitlab won't be affected
+    * New connections between your server and laptop will function independently of the existing connections that you already have
 
 ## Detailed Tasks
 
