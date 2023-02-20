@@ -107,10 +107,26 @@ This brings me to my final point: tracking changes on the server.
 
 Since we cloned `server-scripts` on the server to a bare repository `script-bare-repo.git` on the server, we no longer have a connection between `server-scripts` and `script-bare-repo.git` both on the server. While I am certain there is a way to connect the existing `server-scripts` repository on the server with the `script-bare-repo.git` bare repository also on the server, I have not yet been able to figure it out.
 
-In the meantime, you can just clone the `script-bare-repo.git` on the server to the server. Then you can push/pull from `script-bare-repo` to `script-bare-repo.git` (_both on the server_) which can also then be push pulled from `server-scripts-laptop-copy` on the laptop also.
+In the meantime, you can just clone the `script-bare-repo.git` on the server to a new repository the server named `server-scripts-on-server`. Then you can push/pull from `server-scripts-on-server` to `script-bare-repo.git` (_both on the server_) which can also then be pushed/pulled from `server-scripts-laptop-copy` on the laptop.
     
 On the server:
 
-    $ git clone script-bare-repo.git
+    $ git clone script-bare-repo.git server-scripts-on-server
     
-This will result in a new repository on your server named `script-bare-repo` (without .git suffix). You can push/pull any changes you make in the `script-bare-repo` repository on the server to the `script-bare-repo.git` repository on the server.
+This will result in a new repository on your server named `server-scripts-on-server` (without .git suffix). You can push/pull any changes you make in the `server-scripts-on-server` repository on the server to the `script-bare-repo.git` repository on the server.
+
+## Final Recap
+
+We now have the following files and capabilities:
+
+* server: `server-scripts` 
+    * basis for `script-bare-repo.git` on the server
+    * is no longer connected to `server-scripts` on the server
+* server: `script-bare-repo.git`
+    * can be pulled from _or_ pushed to _from_ `server-scripts-laptop-copy` the laptop
+    * can be pulled from _or_ pushed to _from_ `server-scripts-on-server` the server
+* server: `server-scripts-on-server` 
+    * can push/pull to `script-bare-repo.git` on the server
+* laptop: `server-scripts-laptop-copy`
+    * clone of `script-bare-repo.git` on the server
+    * can push to or pull from `script-bare-repo.git` on the server
