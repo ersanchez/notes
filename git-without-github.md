@@ -103,6 +103,8 @@ On your laptop, you can now make changes to the files. Then you can use the norm
 
 This brings me to my final point: tracking changes on the server. 
 
-Since we cloned `server-scripts` on the server to a bare repository `script-bare-repo.git` on the server, we no longer have a connection between `server-scripts` and `script-bare-repo.git` - both on the server. While I am certain there is a way to ...
+Since we cloned `server-scripts` on the server to a bare repository `script-bare-repo.git` on the server, we no longer have a connection between `server-scripts` and `script-bare-repo.git` - both on the server. While I am certain there is a way to connect the existing `server-scripts` repository on the server with the `script-bare-repo.git` bare repository also on the server, I have not yet been able to figure it out.
+
+In the meantime, you can just clone the `script-bare-repo.git` on the server to the server. Then you can push/pull from `script-bare-repo` to `script-bare-repo.git` (_both on the server_) which can also then be push pulled from `script-bare-repo` on the laptop also.
     
     
