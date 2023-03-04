@@ -33,9 +33,26 @@ Use the built in `apt` package manager to install the NFS service.
     
 ## Configure NFS on Server
 
-NOTE: If you toggled the `sharenfs=on` for the dataset on the server you can skip this step.
+NOTE: If you toggled the `sharenfs=on` on your zfs dataset on the server you can skip this step.
 
 Edit the `/etc/exports` file on the server to include the directories you want to share with your client computers.
 
-Add a line for each directory in the following format:
+    $ sudo vim /etc/exports
 
+Add a line in `/etc/exports` on your server for each shared directory in the following format:
+
+    /nfs-shares/documents   192.168.1.0/255.255.255.0(rw,no_subtree_check)
+    /nfs-shares/music       192.168.1.0/255.255.255.0(rw,no_subtree_check)
+    
+Where:
+
+* `192.168.1.0/255.255.255.0` is the network and subnet mask for your home network
+* `rw` means that you will export this directory as read/write
+    * you can choose `ro` for "read only" if you do not want anyone accidentally deleting your files
+* `no_subtree_check` helps out security on your network
+
+Save the `/etc/exports` file.
+
+Next either restart the NFS service on the server.
+
+    $ sudo systemctl restart nfs-kernel-server
