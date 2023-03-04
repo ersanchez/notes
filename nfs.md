@@ -76,12 +76,20 @@ On your client make a directory upon which you will mount (attach) the server's 
 
     $ sudo mkdir /mnt/server-nfs-shares
     
-## Configure NFS on Client
-
-Now
-
-
+## Mount Server NFS Shares on Client
 
 From the client computer you can list the server's shared directories. Insert your server's ip address in place of the `192.168.1.1` ip address:
 
     $ showmount --exports 192.168.1.1
+
+When you type the command listed above on your client computer you'll get output that looks like this:
+
+    Export list for 192.168.1.1:
+    /nfs-shares/documents   192.168.1.0/255.255.255.0
+    /nfs-shares/music       192.168.1.0/255.255.255.0
+    
+Now you can `mount` the server's shares onto your client's file system. Let's start by mounting the server's `/nfs-shares/documents` directory onto the client's `/mnt/server-nfs-shares` mountpoint.
+
+    $ sudo mount 192.168.1.1:/nfs-shares/documents /mnt/server-nfs-shares
+    
+If you successfully mounted the server's shared directory onto your client's mountpoint, you should now see files in your client's /mnt/server-nfs-shares directory
