@@ -10,6 +10,7 @@ Here is an overview of the process:
 * Delete any mountpoints
 * Install AutoFS
 * Configure AutoFS
+* Restart AutoFS
 
 ## Unmount Shares on Client
 
@@ -74,10 +75,23 @@ Add the server's NFS share information to the `auto.nfs` file:
     music     -fstype=nfs4, rw 192.168.1.1:/nfs-shares/music
     
 * a `documents` subdirectory will be created in the client directory we specified when we edited `auto.master` above
-    * in this case, `documents` will be created on our client computer at `/mnt/server-nfs-shares/documents`
+    * in this case, a ghost directory `documents` will be created on our client computer at `/mnt/server-nfs-shares/documents`
+    * note: this `documents` does not need to be the same as the server's `documents`, you can name it anything
 * `-fstype=nfs4` this is the NFS protocol version number
 * `rw` mount the NFS share as read/write - alternative is `ro` or read-only'
-* `192.168.1.1` is the ip address of the NFS server - substitute your server's ip address here
+* `192.168.1.1` is the ip address of the NFS server
+    * substitute your server's ip address here
 * `/nfs-shares/documents` is the path to the NFS share on the server - AutoFS will mount this share at the 
 
 Save and close the `/etc/nfs.md` file.
+
+## Restart AutoFS
+
+    $ sudo systemctl restart autofs
+    
+Navigate to your newly-mounted shares to verify they are there.
+
+    $ cd /mnt/server-nfs-shares/documents
+    $ ls
+   
+Verify that your server's NFS shares are listed.
