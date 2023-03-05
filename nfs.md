@@ -1,8 +1,8 @@
 # NFS Notes
 
-These steps have been tested on Ubuntu 22.04 server and desktop. This note is aimed at home users sharing files on a local LAN not exposed to the Internet.
+This note shows you how to set up the network file system (NFS) to store files on one central server and access the files from one or more client computers like your desktop or laptop. 
 
-You can use the network file system (NFS) to store files on one central server and access the files from one or more client computers like your desktop or laptop. 
+These steps have been tested on Ubuntu 22.04 server and desktop. This note is aimed at home users sharing files on a local LAN not exposed to the Internet.
 
 Here is an overview of the steps you need to take to get things running:
 
@@ -12,6 +12,8 @@ Here is an overview of the steps you need to take to get things running:
 4. Install NFS on the client
 5. Create a mount point on the client
 6. Configure NFS on the client
+
+After you have a handle on this process, see the note named `autofs` to see how you can automount NFS shares. This will make your life much easier.
 
 ## Create a Shared Directory on Server
 
