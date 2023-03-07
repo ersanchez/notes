@@ -67,7 +67,7 @@ Navigate to the end of the file and add:
 
 Save and close the `/etc/auto.master` file.
 
-Next, edit the map file `/etc/auto.nfs` on your client computer:
+Next, create and edit the map file `/etc/auto.nfs` on your client computer:
 
     $ sudo vim /etc/auto.nfs
     
