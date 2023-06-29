@@ -249,6 +249,39 @@ Note: the ZFS dataset that is being moved cannot already exist on the target zpo
 
 	# zfs send originalPool/originalFS@TIMESTAMP | ssh user@remotehost zfs receive remotePool
 
+
+## Client Setup
+
+Accessing files from the zfs server on Ubuntu desktop is fairly easy. You just need to do these tasks:
+
+* install the `nfs-common` package on your desktop
+* create some mountpoints
+* verify that the zfs shares on the server have NFS turned on (see above)
+* mount the zfs server shares on Ubuntu desktop
+
+Let's get started...
+
+Install the `nfs-common` package on Ubuntu desktop:
+
+	$ sudo apt install nfs-common
+
+Create some mountpoints on the desktop. Let's say that you want to create a mountpoint on your desktop for a zfs share on the server named `templates`. Hers's how you would do it:
+
+First create a main mountpoint in the `/mnt` directory:
+
+	$ sudo mkdir /mnt/nfs-shares
+
+Then create a mountpoint for templates:
+ 
+	$ sudo mkdir /mnt/nfs-shares/templates
+
+Assuming that the `sharenfs` flag on the server's zfs dataset is set to `yes` (again, see above), you are all set.
+
+Mount the zfs share on the server to the mountpoint you on the desktop:
+
+	$ sudo mount serverip:/path/to/server/zfs/dataset /mnt/nfs/templates
+
+
 [calc]: https://jsfiddle.net/Biduleohm/paq5u7z5/1/embedded/result/
 [manzpoolF]: https://mdoc.su/f/zpool
 [timestamp]: https://www.iso.org/iso-8601-date-and-time-format.html
