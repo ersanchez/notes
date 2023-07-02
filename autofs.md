@@ -1,13 +1,11 @@
 # AutoFS
 
-Use `autofs` to automatically mount/unmount NFS shares. See the note named `nfs` for background information.
+Use `autofs` to automatically mount/unmount NFS shares. See the note in my notes repository named `nfs` for background information.
 
-`autofs` will mount any subdirectories listed in the `/etc/server-nfs-shares` (or whatever you have named your mountpoint) so you can delete any existing mountpoints that you have made (if any).
+Here is an overview of the setup process:
 
-Here is an overview of the process:
-
-* Unmount any shares
-* Delete any mountpoints
+* Unmount any shares 
+* Delete any mountpoints **READ THE WARNING BELOW**
 * Install AutoFS
 * Configure AutoFS
 * Restart AutoFS
@@ -23,9 +21,9 @@ Now that you have unmounted the NFS shared directory, you can delete the mountpo
 
 ## Delete Mountpoints on Client
 
-You can now delete the mountpoints on the client that AutoFS will be automatically mounting and unmounting.
+**WARNING running the `rm -r` command on a mounted NFS share will delete the contents (if you have read/write) access!**
 
-**WARNING** running the `rm -r` command on a mounted NFS share will delete the contents (if you have read/write) access!
+You can now delete the mountpoints on the client that AutoFS will be automatically mounting and unmounting.
 
     $ cd /mnt/server-nfs-shares
     $ sudo rm -r documents
@@ -47,8 +45,10 @@ There are two files you will need to edit on your client computer to configure `
 
 * `/etc/auto.master` - this is the configuration file for `autofs`
 * `/etc/auto.nfs` - this map file will contain our list of (Note: you can name this whatever you want)
-    * mount points
-    * location where we want to mount them
+    * mount points on our client
+    * server NFS shares that we want autofs to mount on our client
+
+### Edit `/etc/auto.master`
 
 Let's edit `/etc/auto.master` first. 
 
@@ -56,7 +56,7 @@ Add a line to the very end of the existing `auto.master` file that references yo
 
     $ sudo vim /etc/auto.master
     
-Navigate to the end of the file and add:
+Navigate to the end of the `auto.master` file and add:
 
     /mnt/server-nfs-shares /etc/auto.nfs --ghost --timeout=60
     
@@ -67,16 +67,20 @@ Navigate to the end of the file and add:
 
 Save and close the `/etc/auto.master` file.
 
+### Create & Edit `auto.nfs`
+
 Next, create and edit the map file `/etc/auto.nfs` on your client computer:
 
     $ sudo vim /etc/auto.nfs
     
-In this example I will use the two example NFS server shares from the note titled, `nfs.md`. Please refer to that separate note for background information.
+In this example I will use the two example NFS server shares from the note in this repository titled, `nfs.md`. Please refer to that separate note for background information.
 
 Add the server's NFS share information to the `auto.nfs` file:
 
-    documents -fstype=nfs4, rw 192.168.1.1:/nfs-shares/documents
-    music     -fstype=nfs4, rw 192.168.1.1:/nfs-shares/music
+**WARNING: Do _NOT_ insert any tabs or extra spacing to make this look pretty**
+
+    documents -fstype=nfs4,rw 192.168.1.1:/nfs-shares/documents
+    music -fstype=nfs4,rw 192.168.1.1:/nfs-shares/music
     
 This follows the `mount-point options location` format where:
     
