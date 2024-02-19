@@ -3,10 +3,11 @@
 ## Contents
 
 1. Generate your public and private keys
-2. Generate a revoke key - just in case you ever need to cancel your key
-3. List keys
-4. Revoke a key
-5. Export a private key (move it to a new computer)
+1. Generate a revoke key - just in case you ever need to cancel your key
+1. Sign someone else's key
+1. List keys on your computer
+1. Revoke a key
+1. Export a private key (move it to a new computer)
 
 ## Helpful Hints
 
@@ -37,17 +38,17 @@ Keep this revocation key somewhere safe. You will need it to revoke your gpg key
 
 After verifying your friend's credentials at the key party, download their key from a public keyserver - for this example, I'll use the MIT PGP key server. Try to remember to ask your new friend at the key signing party if its ok to upload the key you sign to a keyserver.
 
-    $ gpg2 --keyserver pgp.mit.edu --recv-keys <friendsKeyID>
+    $ gpg --keyserver pgp.mit.edu --recv-keys <friendsKeyID>
   
 Double check the fingerprint and `key-id` on the key you just downloaded against the details you got at the key signing party.
 
 If everything matches, sign the key.
 
-    $ gpg2 --default-key <yourKeyID> --sign-key <friendsKeyID>
+    $ gpg --default-key <yourKeyID> --sign-key <friendsKeyID>
     
 Set the trust level on your signature on the key you just signed.
 
-    $ gpg2 --edit-key <friendsKeyID>
+    $ gpg --edit-key <friendsKeyID>
     gpg> trust
     # set the trust level as appropriate
     gpg> quit
@@ -57,6 +58,18 @@ Next, upload the key (if your friend says it is ok) to the key server.
     $ gpg2 --keyserver pgp.mit.edu --send-key <friendsKeyID>
   
 Check the key server to verify everything uploaded successfully.
+
+## List Keys
+
+You can list the public keys or the private keys on your computer.
+
+Public
+
+	$ gpg --list-keys
+
+Private
+
+	$ gpg --list-secret-keys
 
 ## Revoke Your Key
 
