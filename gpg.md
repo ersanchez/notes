@@ -39,7 +39,7 @@ Here is a list of key servers that work at the time of the last update:
 Note: Generate a revoke key right after you **create** a new key. 
 Note: Another section below has instructions for revoking your key.
 
-	$ gpg -a --output filename-of-revoke-key --gen-revoke key-id
+	$ gpg --output filename-of-revoke-key --gen-revoke key-id
 
 select a reason for the revocation (if you have one)
 
