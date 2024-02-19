@@ -39,11 +39,12 @@ Here is a list of key servers that work at the time of the last update:
 Note: Generate a revoke key right after you **create** a new key. 
 Note: Another section below has instructions for revoking your key.
 
-	$ gpg -a --output user@host.tld.asc.revoke --gen-revoke key-id
+	$ gpg -a --output filename-of-revoke-key --gen-revoke key-id
 
 select a reason for the revocation (if you have one)
 
-	gpg> quit
+	gpg> save
+ 	gpg> quit
 	
 Keep this revocation key somewhere safe. You will need it to revoke your gpg key if it is ever compromised.
 
