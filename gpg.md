@@ -30,11 +30,11 @@ Here is a list of key servers that work at the time of the last update:
 * pgp.surf.nl
 * the.earth.li
 
-### Generate Keys
+## Generate Keys
 
 	$ gpg --gen-key
 
-### Generate a Revoke Key
+## Generate a Revoke Key
 
 Note: Generate a revoke key right after you **create** a new key. 
 Note: Another section below has instructions for revoking your key.
