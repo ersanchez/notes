@@ -1,17 +1,22 @@
 # GnuPG Notes
 
-## First Things First
+## Contents
 
 1. Generate your public and private keys
 2. Generate a revoke key - just in case you ever need to cancel your key
+3. List keys
+4. Revoke a key
+5. Export a private key (move it to a new computer)
 
 ### Generating Keys
 
-_coming soon_
+	$gpg --gen-key
 
 ### Generating a Revoke Key
 
-	$ gpg2 -a --output user@host.tld.asc.revoke --gen-revoke keyID
+Note: Generate a revoke key right after you create a new key. 
+
+	$ gpg -a --output user@host.tld.asc.revoke --gen-revoke keyID
 
 select a reason for the revocation (if you have one)
 
