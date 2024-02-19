@@ -8,11 +8,19 @@
 4. Revoke a key
 5. Export a private key (move it to a new computer)
 
-### Generating Keys
+## Helpful Hints
+
+You can find the `key-id` by typing this command:
+
+	$ gpg --list-keys --fingerprint
+
+The `--fingerprint` option will print out a hexadecimal `key-id`. The last 8 digits of this hex code is the `key-id`.
+
+### Generate Keys
 
 	$gpg --gen-key
 
-### Generating a Revoke Key
+### Generate a Revoke Key
 
 Note: Generate a revoke key right after you create a new key. 
 
