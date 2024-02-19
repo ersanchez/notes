@@ -73,6 +73,8 @@ Private
 
 ## Revoke Your Key
 
+If your key is compromised, revoke it using the revoke key you made earlier. This will mark the key as 'revoked' on the keyservers and _hopefully_ nobody will use it to encrypt information to send to you.
+
 First, import the revoke key onto your computer (and any other computers upon which your gpg key is installed).
 
 	$ gpg --import name-of-your-revoke-key.asc
