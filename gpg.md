@@ -32,7 +32,7 @@ Here is a list of key servers that work at the time of the last update:
 
 ## Generate Keys
 
-	$ gpg --gen-key
+	$ gpg --full-generate-key
 
 ## Generate a Revoke Key
 
