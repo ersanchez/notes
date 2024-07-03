@@ -72,10 +72,10 @@ In this example we use these file names:
 * script-bare-repo.git
 
       $ git clone --bare\
-      server-scripts\ # This is the name of the directory that we initialized above
-      script-bare-repo.git # This is the name of the new bare repository
+      server-scripts\       # directory that we initialized above
+      script-bare-repo.git  # new bare repository
 
-        Cloning into bare repository 'script-bare-repo.git`...
+      Cloning into bare repository 'script-bare-repo.git`...
         done.
     
 Ok, now we are ready to start cloning the bare repository named `script-bare-repo.git`.
