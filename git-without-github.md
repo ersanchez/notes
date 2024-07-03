@@ -66,6 +66,11 @@ After that we will take the newly initialized `git` repository `server-scripts` 
 
 **NOTE**: the `git` repository and the new _bare_ `git` repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
 
+In this example we use these file names:
+
+* server-scripts
+* script-bare-repo.git
+
     $ git clone --bare\ 
     server-scripts\ # This is the name of the directory that we initialized above
     script-bare-repo.git # This is the name of the new bare repository
