@@ -30,7 +30,7 @@ Here are the things you will need:
 
 ## Detailed Tasks
 
-Here are the tasks we will perform:
+Here is a list of all the tasks we will perform. The tasks are explained with examples below this list.
 
 * initialize a directory into a git repository
 * clone the git repository on the server into a bare repository on the server
