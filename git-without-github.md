@@ -76,8 +76,8 @@ After that we will take the newly initialized `git` repository `server-scripts` 
 
 In this example we use these file names:
 
-* server-scripts
-* script-bare-repo.git
+* [server-scripts]
+* [script-bare-repo.git]
 
       $ git clone\
       --bare\               # tells git the type of repo to clone into
@@ -95,8 +95,8 @@ I have some very important points to make about this `script-bare-repo.git` late
 
 The act of cloning the repository from the server to the laptop will download the git repository and set the repository up to:
 
-* pull changes from the server to the laptop
-* push changes from the laptop to the server
+* pull changes from the server   to the laptop
+* push changes to   the server from the server
 
 This is possible because that `.git` directory in the repository will have the URL for the server.
 
