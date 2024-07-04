@@ -70,7 +70,7 @@ On the **server**, next we move up one level in the directory tree.
     $ pwd
     /home/alice
 
-After that we will take the newly initialized `git` repository `server-scripts` on the server and convert it into a bare repository named `new-bare-repo-on-server.git` on the server. The `.git` suffix on the end of the filename helps people recognize that it is a `git` repo and not just a regular directory. 
+After that we will take the newly initialized `git` repository `server-scripts` on the server and _copy_ it into a **bare** repository named `new-bare-repo-on-server.git` on the server. The `.git` suffix on the end of the filename helps people recognize that it is a `git` repo and not just a regular directory. 
 
 **NOTE**: the `git` repository and the new _bare_ `git` repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
 
