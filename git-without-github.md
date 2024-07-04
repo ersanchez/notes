@@ -66,6 +66,7 @@ On the server, next we move up one level in the directory tree.
     /home/alice/server-scripts
     
     $ cd ..   # move up one relative level in the file tree
+    
     $ pwd
     /home/alice
 
@@ -78,12 +79,13 @@ In this example we use these file names:
 * server-scripts
 * script-bare-repo.git
 
-      $ git clone --bare\
+      $ git clone\
+      --bare\               # tells git the type of repo to clone into
       server-scripts\       # directory that we initialized above
       script-bare-repo.git  # new bare repository
 
       Cloning into bare repository 'script-bare-repo.git`...
-        done.
+      done.
     
 Ok, now we are ready to start cloning the bare repository named `script-bare-repo.git`.
 
