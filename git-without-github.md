@@ -33,7 +33,7 @@ Here are the things you will need:
 Here is a list of all the tasks we will perform. The tasks are explained with examples below this list.
 
 * initialize a directory into a git repository
-* clone the git repository on the server into a bare repository on the server
+* clone the git-initialized repository on the server into a bare repository on the server
 * clone the bare repository from the server to the laptop
 * clone the bare repository from the server to the server (that is _not_ a typo)
 
@@ -56,7 +56,7 @@ On the server, initialize the directory into a `git` repository by first navigat
 
 When you issued the `git init` command inside the `server-scripts` folder it added a hidden directory, `.git` that contains files and subdirectories that `git` will use to track any changes you make from now on.
 
-### Task: Clone the `git` Repository into a Bare Repository
+### Task: Clone the git-initialized Repository into a Bare Repository
 
 Now, we need to create a bare repository. A bare repository is a storage location to which and from which remote users can synchronize. The bare repository is considered the 'central storage location'.
 
