@@ -146,7 +146,7 @@ We now have the following files and capabilities:
     * which can be pulled from _or_ pushed to _from_ `server-scripts-on-server` the server
     * which can be pulled from _or_ pushed to _from_ any other computer that clones this bare repository
 * server: `server-scripts-on-server` 
-    * can push/pull to `script-bare-repo.git` on the server
+    * can push/pull to `new-bare-repo-on-server.git` on the server
 * laptop: `server-scripts-laptop-copy`
-    * clone of `script-bare-repo.git` on the server
+    * clone of `new-bare-repo-on-server.git` on the server
     * can push to or pull from `script-bare-repo.git` on the server
