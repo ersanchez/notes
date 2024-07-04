@@ -58,9 +58,9 @@ When you issued the `git init` command inside the `server-scripts` folder it add
 
 ### Task: Clone the git-initialized Repository into a Bare Repository
 
-Now, we need to create a bare repository. A bare repository is a storage location to which and from which remote users can synchronize. The bare repository is considered the 'central storage location'.
+Now, we need to create a bare repository. A bare repository is a storage location _to which_ and _from which_ remote users can synchronize. The bare repository is considered the 'central storage location'.
 
-On the server, next we move up one level in the directory tree. 
+On the **server**, next we move up one level in the directory tree. 
 
     $ pwd
     /home/alice/server-scripts
@@ -70,26 +70,26 @@ On the server, next we move up one level in the directory tree.
     $ pwd
     /home/alice
 
-After that we will take the newly initialized `git` repository `server-scripts` on the server and convert it into a bare repository named `script-bare-repo.git` on the server. The `.git` suffix on the end of the filename helps people recognize that it is a `git` repo and not just a regular directory. 
+After that we will take the newly initialized `git` repository `server-scripts` on the server and convert it into a bare repository named `new-bare-repo-on-server.git` on the server. The `.git` suffix on the end of the filename helps people recognize that it is a `git` repo and not just a regular directory. 
 
 **NOTE**: the `git` repository and the new _bare_ `git` repository _can_ have the same name, but guides that use the same names for two different objects suck because this can be confusing to people learning something for the first time (_like me_).
 
 In this example we use these file names:
 
 * `server-scripts`
-* `script-bare-repo.git`
+* `new-bare-repo-on-server.git`
 
       $ git clone\
-      --bare\               # tells git the type of repo to clone into
-      server-scripts\       # directory that we initialized above
-      script-bare-repo.git  # new bare repository
+      --bare\                      # tells git the type of repo to clone into
+      server-scripts\              # directory that we initialized above
+      new-bare-repo-on-server.git  # new bare repository
 
-      Cloning into bare repository 'script-bare-repo.git`...
+      Cloning into bare repository 'new-bare-repo-on-server.git`...
       done.
     
-Ok, now we are ready to start cloning the bare repository named `script-bare-repo.git`.
+Ok, now we are ready to start cloning the bare repository named `new-bare-repo-on-server.git` on our laptop computer.
 
-I have some very important points to make about this `script-bare-repo.git` later on in this note. Please read on.
+I have some very important points to make about this `new-bare-repo-on-server.git` later on in this note. Please read on.
 
 ### Task: Clone Bare Repository From Server to Laptop
 
@@ -100,14 +100,14 @@ The act of cloning the repository from the server to the laptop will download th
 
 This is possible because that `.git` directory in the repository will have the URL for the server.
 
-On your laptop, navigate to the location on your laptop where you want the git repository to be located. Let's say that you want to put the cloned repository in a specific directory named `git-tracked-files` on your laptop:
+On your **laptop**, navigate to the location on your laptop where you want the git repository to be located. Let's say that you want to put the cloned repository in a specific directory named `git-tracked-files` on your laptop:
 
     $ cd /home/alice/git-tracked-files/
 
 On your laptop issue the following command to clone the repository from the server to the laptop. Note: we will change the name of the resulting cloned repository one more time to help keep things straight.
 
-    $ git clone alice@example.com:/home/alice/script-bare-repo.git server-scripts-laptop-copy
-    Enter passphrase for key alice_id_ed25519: # (or something like that)
+    $ git clone alice@example.com:/home/alice/new-bare-repo-on-server.git server-scripts-laptop-copy
+    Enter passphrase for key alice_id_ed25519: # Enter your SSH key passphrase if it has one
     remote: Enumerting objects: done.
     remote: Counting objects: done.
     remote: Compressing objects: done.
@@ -120,31 +120,31 @@ Notice that the newly-cloned directory does not have the `.git` suffix on the fi
 
 On your laptop, you can now make changes to the files in the `server-scripts-laptop-copy` repository. Then you can use the `git add`, `git commit`, `git push`, and `git pull` commands to synchronize changes between your laptop and your server.
 
-**Important note**: In our example, we took a directory on the server `server-scripts`, we initialized it as a git repository, and we cloned the git repository into a bare repository `script-bare-repo.git`. When we cloned `script-bare-repo.git` from our server to our laptop, the we renamed the resulting repository on the laptop to `server-scripts-laptop-copy` (no `.git` suffix). Any changes made on the laptop's `server-scripts-laptop-copy` repository that are pushed/pulled to the server will **_only_** affect the `script-bare-repo.git` bare repository on the server **NOT** the original `server-scripts` repository on the server.
+**Important note**: In our example, we took a directory on the server `server-scripts`, we initialized it as a git repository, and we cloned the git repository into a bare repository `new-bare-repo-on-server.git`. When we cloned `new-bare-repo-on-server.git` from our server to our laptop, the we renamed the resulting repository on the laptop to `server-scripts-laptop-copy` (no `.git` suffix). Any changes made on the laptop's `server-scripts-laptop-copy` repository that are pushed/pulled to the server will **_only_** affect the `new-bare-repo-on-server.git` bare repository on the server **NOT** the original `server-scripts` repository on the server.
 
 This brings me to my final point: tracking changes on the server. 
 
-Since we cloned `server-scripts` on the server to a bare repository `script-bare-repo.git` on the server, we no longer have a connection between `server-scripts` and `script-bare-repo.git` both on the server. While I am certain there is a way to connect the existing `server-scripts` repository on the server with the `script-bare-repo.git` bare repository also on the server, I have not yet been able to figure it out.
+Since we cloned `server-scripts` on the server to a bare repository `new-bare-repo-on-server.git` on the server, we no longer have a connection between `server-scripts` and `new-bare-repo-on-server.git` both on the server. While I am certain there _is_ a way to connect the existing `server-scripts` repository on the server with the `new-bare-repo-on-server.git` bare repository also on the server, I have not yet been able to figure it out.
 
-In the meantime, you can just clone the `script-bare-repo.git` on the server to a new repository the server named `server-scripts-on-server`. Then you can push/pull from `server-scripts-on-server` to `script-bare-repo.git` (_both on the server_) which can also then be pushed/pulled from `server-scripts-laptop-copy` on the laptop.
+In the meantime, you can just clone the `new-bare-repo-on-server.git` on the server to a new repository the server named `server-scripts-on-server`. Then you can push/pull from `server-scripts-on-server` to `new-bare-repo-on-server.git` (_both on the server_) which can also then be pushed/pulled from `server-scripts-laptop-copy` on the laptop.
     
 On the server:
 
     $ git clone script-bare-repo.git server-scripts-on-server
     
-This will result in a new repository on your server named `server-scripts-on-server` (without .git suffix). You can push/pull any changes you make in the `server-scripts-on-server` repository on the server to the `script-bare-repo.git` repository on the server.
+This will result in a new repository on your server named `server-scripts-on-server` (without .git suffix). You can push/pull any changes you make in the `server-scripts-on-server` repository on the server to the `new-bare-repo-on-server.git` repository on the server.
 
 ## Final Recap
 
 We now have the following files and capabilities:
 
 * server: `server-scripts` 
-    * basis for `script-bare-repo.git` on the server
+    * basis for `new-bare-repo-on-server.git` on the server
     * is no longer connected to `server-scripts` on the server
-* server: `script-bare-repo.git`
-    * can be pulled from _or_ pushed to _from_ `server-scripts-laptop-copy` the laptop
-    * can be pulled from _or_ pushed to _from_ `server-scripts-on-server` the server
-    * can be pulled from _or_ pushed to _from_ any other computer that clones this bare repository
+* server: `new-bare-repo-on-server.git`
+    * which can be pulled from _or_ pushed to _from_ `server-scripts-laptop-copy` the laptop
+    * which can be pulled from _or_ pushed to _from_ `server-scripts-on-server` the server
+    * which can be pulled from _or_ pushed to _from_ any other computer that clones this bare repository
 * server: `server-scripts-on-server` 
     * can push/pull to `script-bare-repo.git` on the server
 * laptop: `server-scripts-laptop-copy`
