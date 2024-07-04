@@ -58,9 +58,16 @@ When you issued the `git init` command inside the `server-scripts` folder it add
 
 ### Task: Clone the `git` Repository into a Bare Repository
 
+Now, we need to create a bare repository. A bare repository is a storage location to which and from which remote users can synchronize. The bare repository is considered the 'central storage location'.
+
 On the server, next we move up one level in the directory tree. 
 
-    $ cd /home/alice
+    $ pwd
+    /home/alice/server-scripts
+    
+    $ cd ..   # move up one relative level in the file tree
+    $ pwd
+    /home/alice
 
 After that we will take the newly initialized `git` repository `server-scripts` on the server and convert it into a bare repository named `script-bare-repo.git` on the server. The `.git` suffix on the end of the filename helps people recognize that it is a `git` repo and not just a regular directory. 
 
