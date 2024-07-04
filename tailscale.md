@@ -2,7 +2,7 @@
 
 ## Security
 
-By default, when you use the default settings and install and authorize Tailscale, the default user can SSH **as any user** on the target computer!
+**WARNING** By default, when you use the default settings and install and authorize Tailscale, the default user can SSH **as any user** on the target computer!
 
 Example:
 
@@ -13,3 +13,5 @@ Example:
   * `ssh bob@computer-b` success!
   * `ssh carol@computer-b` success!
   * `ssh david@computer-b` success!
+
+Be sure to read Tailscale documentation and configure users with appropriate access levels.
