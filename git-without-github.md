@@ -93,7 +93,7 @@ I have some very important points to make about this `new-bare-repo-on-server.gi
 
 ### Task: Clone Bare Repository From Server to Laptop
 
-The act of cloning the repository from the server to the laptop will download the git repository and set the repository up to:
+The act of cloning the bare repository from the server to the laptop will download the git bare repository to the laptop and set the repository up to:
 
 * `pull changes from the server   to the laptop`
 * `push changes to   the server from the laptop`
