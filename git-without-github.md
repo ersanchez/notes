@@ -96,7 +96,7 @@ I have some very important points to make about this `script-bare-repo.git` late
 The act of cloning the repository from the server to the laptop will download the git repository and set the repository up to:
 
 * `pull changes from the server   to the laptop`
-* `push changes to   the server from the server`
+* `push changes to   the server from the laptop`
 
 This is possible because that `.git` directory in the repository will have the URL for the server.
 
