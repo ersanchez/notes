@@ -20,3 +20,12 @@ Now I have a problem: The version of `example-file.txt` that is on computer-B do
 
 I was not able to find a recommended solution for this scenario. I think the reason for no official guidance is that the needed actions will be different in almost every case.
 
+Here is how I fixed the issue that I described in my numbered steps above:
+
+* compare the `example-file.txt` on both computer-A and computer-B to identify the differences
+* determine what changed
+* backup both versions of `example-file.txt` giving them meaningful names that are easily differentiated
+* **PAUSE** `syncthing` on the computer on which you will make the fix
+* make the needed updates to `example-file.txt`
+* **UN-PAUSE** `syncthing`
+* verify that the changes have synchronized to the other computer
